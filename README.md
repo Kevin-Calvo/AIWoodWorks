@@ -1,6 +1,9 @@
 # AIWoodWorks
 
-	AIWoodWorks es una página web donde los usuarios podrán crear sus propios muebles con ayuda de inteligencia artificial. La página tiene un servicio de IA donde los usuarios podrán describir su idea, y en base a la descripción la IA les generará el diseño de su mueble. También podrán ayudar a mejorar el diseño adjuntando imágenes de diseños similares al que quiere. AIWoodWorks también se encargará de conectar a los usuarios con fabricantes que estén dispuestos a volver su diseño en realidad.
+AIWoodWorks es una página web donde los usuarios podrán crear sus propios muebles con ayuda de inteligencia artificial. 
+La página tiene un servicio de IA donde los usuarios podrán describir su idea, y en base a la descripción la IA les generará el diseño de su mueble. 
+También podrán ayudar a mejorar el diseño adjuntando imágenes de diseños similares al que quiere. 
+AIWoodWorks también se encargará de conectar a los usuarios con fabricantes que estén dispuestos a volver su diseño en realidad.
 
 ## Requerimientos
 
