@@ -41,17 +41,17 @@ AIWoodWorks también se encargará de conectar a los usuarios con fabricantes qu
 - Actualización del estado del pedido
 - Coordinación del envío
 
-## Diagrama ***
+## Diagrama:
 ![Firefox_Screenshot_2024-09-29T04-38-31 192Z](https://github.com/user-attachments/assets/b9ff33c0-1418-43fe-bf08-94e2263b9b31)
 
-## Problem Statement y Storyboard
+## Problem Statement y Storyboard:
 ![diagramaStoryboard](https://github.com/user-attachments/assets/ce4f88ed-641a-4ee9-afe2-19671f006959)
 
 ### Problem Statement
 
 Reducir el tiempo entre el momento en que se crea el diseño y se elige el fabricante
 
-### Storyboard ***
+### Storyboard:
 ![crazy8](https://github.com/user-attachments/assets/08ea6f7f-d97c-450d-93d2-c43d53188f5c)
 
 1. Primer el usuario hace una request a la AI de la página para generar un mueble que se adapte a lo que el usuario pide.
