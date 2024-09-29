@@ -47,7 +47,7 @@ AIWoodWorks también se encargará de conectar a los usuarios con fabricantes qu
 ## Problem Statement y Storyboard:
 ![diagramaStoryboard](https://github.com/user-attachments/assets/ce4f88ed-641a-4ee9-afe2-19671f006959)
 
-### Problem Statement
+### Problem Statement:
 
 Reducir el tiempo entre el momento en que se crea el diseño y se elige el fabricante
 
