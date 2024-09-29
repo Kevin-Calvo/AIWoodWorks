@@ -53,3 +53,10 @@ Reducir el tiempo entre el momento en que se crea el diseño y se elige el fabri
 
 ### Storyboard ***
 ![crazy8](https://github.com/user-attachments/assets/08ea6f7f-d97c-450d-93d2-c43d53188f5c)
+
+1. Primer el usuario hace una request a la AI de la página para generar un mueble que se adapte a lo que el usuario pide.
+2. La AI genera el mueble, el usuario puede elegir si hacer cambios o decidirse por un diseño.
+3. Se publica el diseño y se le recomienda a fabricantes, y estos deciden si están interesados.
+4. El usuario recibe una lista de interesados, y puede ver sus perfiles para decidir cuál fabricante quiere que le ayude.
+5. Una vez escogido el fabricante, él y el usuario pueden discutir datos de la oferta como materiales, costo, tiempo de producción, envío, entre otros.
+6. El usuario puede sellar el trato una vez se llega a un acuerdo y de esta manera proceder al trabajo y métodos de pago.
