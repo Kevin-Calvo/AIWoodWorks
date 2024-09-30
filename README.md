@@ -42,7 +42,8 @@ AIWoodWorks también se encargará de conectar a los usuarios con fabricantes qu
 - Coordinación del envío
 
 ## Diagrama:
-![Firefox_Screenshot_2024-09-29T04-38-31 192Z](https://github.com/user-attachments/assets/b9ff33c0-1418-43fe-bf08-94e2263b9b31)
+![Screenshot 2024-09-30 151240](https://github.com/user-attachments/assets/c056a95f-61ae-4742-88ba-c1335fd4cf70)
+
 
 ## Problem Statement y Storyboard:
 ![diagramaStoryboard](https://github.com/user-attachments/assets/ce4f88ed-641a-4ee9-afe2-19671f006959)
