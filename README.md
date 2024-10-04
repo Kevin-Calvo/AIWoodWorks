@@ -114,21 +114,43 @@ A continuación se provee un conjunto de preguntas o checklist que facilita la i
     El sistema debe estar siempre disponible durante horarios comerciales estándar (de 8 AM a 8 PM) y en eventos de marketing o campañas especiales.
 
 ### Interoperability
-
 21. Are there any standards or protocols that the system must adhere to?
-
+    Como opera en Estados Unidos y Costa Rica, deberá seguir los estándares de ambos países. Entre estos estándares se encuentra la regulación para protección de datos, ciberseguridad, protección de menores de edad, seguridad de pagos y para asegurar la accesibilidad.
+    
 ### Compliance
 22. What legal and regulatory requirements must the system comply with?
+    Debe cumplir con las normas sobre protección y manejo de datos de usuario, de contenido para menores de edad, de accesibilidad y de seguridad en los métodos de pago. Para Estados Unidos estas normas serían: CCPA, COPPA, PCI DSS, y ADA. En Costa Rica debe seguir las leyes 7600 y 8968. En ambos debe mantenerse según estándares como ISO/IEC 27001 para la seguridad de información y privacidad de datos. Además debe cumplir con el pago de impuestos correspondiente para cada país.
+    
 23. Are there industry-specific standards that need to be followed?
+    AIWoodWorks deberá crear diseños que cumplan con los siguientes estándares:
+    - ANSI/BIFMA (Business and Institutional Furniture Manufacturers Association)
+    - ASTM International
+    - FSC (Forest Stewardship Council)
+    - EPA (Environmental Protection Agency)
+    - OSHA (Occupational Safety and Health Administration)
+    - INTECO (Instituto de Normas Técnicas de Costa Rica)
+    - Ley Forestal 7575
+    Estas normativas asegurarán que los diseños y productos vendidos através de AIWoodWorks serán seguros, duraderos, sostenibles con el medio ambiente y ergonómicos. AIWoodWorks deberá concentrarse en eso a la hora de la generación del diseño, y para asegurar la calidad de los muebles vendidos, se reservará el derecho de admisión para fabricantes. Solo se aceptarán fabricantes en la aplicación que puedan cumplir con estos estándares.
 
 ### Extensibility
 24. How should the system be designed to accommodate future enhancements?
+    AIWoodWorks se desarrollará con el uso de microservicios para asegurar que cada función pueda aumentar su capacidad en caso de ser necesario a futuro. Estos servicios deberán ser implementados de forma modular, o sea que son aislados uno del otro, por lo que, por ejemplo, un cambio en la forma de creación de diseños, no debería afectar el registro de usuarios. También deberá ser desarrollado por medio de APIs que garanticen que la implementación de nuevas funciones no interfiera con las funciones ya definidas. Se deberán utilizar patrones de diseño como Decorator, Observer y Strategy que permitan implementar nuevas funciones a objetos ya existentes sin afectar las funciones anteriores.
+    
 25. Are there specific areas where extensibility is critical?
+    La extensibilidad es crítica en la base de datos, la creación de diseños y la integración de nuevos socios (fabricantes). Bases de datos y creación de diseños debe podr ampliar su capacidad a medida que crezca la app. La integración de nuevos fabricantes, debe tomar en cuenta la posibilidad de que a futuro se agreguen fabricantes con distintas características como estilo de producción y sus necesidades de negoico.
 
 ### Localization
 26. What are the requirements for supporting multiple languages and regions?
+    AiWoodWorks deberá poder ser usada en Estados Unidos y en Costa Rica, por lo que deberá tener la opción de cambiar entre inglés y español. También debe tener encuenta el soporte para distintos formatos de fechas (hora, dia, mes y año), tipos de monedas, formatos numéricos y medidas.
+    
 27. How should the system handle different date, time, and currency formats?
-
+    Se deberá implementar un sistema flexible que modifique los datos según la región de entrega del producto. Como los fabricantes son estáticos y no cambian de zona, ellos verán la información siempre en el mismo formato. Sin embargo, para los clientes, deberá cambiar su zona y la zona de entrega, si están encargando un mueble desde Costa Rica pero se entregará y fabricará en Estados Unidos, el formato de fecha, tiempo y moneda deberá apegarse al de la zona de entrega y por ende al del fabricante.
+    
 ### Documentation
 28. What documentation is required for users, administrators, and developers?
-29. How should the documentation be maintained and updated?
+    Usuarios: Manual de usuario, políticas de uso, soporte y contacto.
+    Administradores: Guía de administración, mantenimiento del sistema, políticas de seguridad, guía sobre manejo de incidencias.
+    Developers: Guía de desarrollo, guía de APIs, procedimientos de implementación, diagrama de bases, diagrama de clases, capas de clases, control de versiones.
+    
+30. How should the documentation be maintained and updated?
+    La documentación se debe de mantener en un repositorio, en este caso se usará Google Drive. Toda la documentación debe de tener un responsable que se encargue de que se mantenga actualizada y veráz. La documentación debe de ser actualizada cada vez que haya un cambio, se debe mantener un control de los cambios y periodicamente se debe de revisar para asegurarse de que si se esté actualizando.
