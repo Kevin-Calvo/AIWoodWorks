@@ -67,11 +67,11 @@ Reducir el tiempo entre el momento en que se crea el diseño y se elige el fabri
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-### Non Functional Requirements
+## Non Functional Requirements
 
 A continuación se provee un conjunto de preguntas o checklist que facilita la identificación de múltiples atributos no funcionales de un sistema o desarrollo :
 
-##Performance
+### Performance
 
 1. What are the expected response times for different functions under normal and peak load conditions?
     Para generar un diseño de mueble por la AI, esperamos tiempos de respuesta de entre 1 a 3 segundos en condiciones normales. En momentos de alta carga, debería mantenerse por debajo de los 5 segundos.
@@ -83,7 +83,7 @@ A continuación se provee un conjunto de preguntas o checklist que facilita la i
 3. What are the performance benchmarks for critical operations?
     Las operaciones críticas como la generación de diseños por la AI y el envío de solicitudes a los fabricantes deberían completarse en menos de 15 segundos máximo. Cualquier operación que tarde más de 5 segundos sería considerada una falla de rendimiento.
 
-##Scalability
+### Scalability
 
 4. How should the system handle increased load or data volume over time?
     El sistema debe estar preparado para usar un servicio de autoescalado en la nube para manejar aumentos en el tráfico y el volumen de datos, especialmente durante eventos de marketing o temporadas altas. 
@@ -93,7 +93,7 @@ A continuación se provee un conjunto de preguntas o checklist que facilita la i
     La parte de AI debe ser modular y escalar horizontalmente, permitiendo la adición de más instancias de generación de modelos si aumenta la demanda.
     Los componentes relacionados con el almacenamiento de datos (como las solicitudes y respuestas de fabricantes) deben utilizar bases de datos escalables, como bases de datos distribuidas o sistemas con particionamiento horizontal.
 
-##Reliability
+### Reliability
 
 6. What is the acceptable downtime for the system?
     Se espera un tiempo de inactividad máximo de 4 horas al mes (99.5% de disponibilidad). Preferiblemente, el tiempo de inactividad se programaría durante horarios de bajo tráfico.
