@@ -123,7 +123,50 @@ A continuación se provee un conjunto de preguntas o checklist que facilita la i
 
      El sistema debe estar siempre disponible durante horarios comerciales estándar (de 8 AM a 8 PM) y en eventos de marketing o campañas especiales.
 
+### Security
+11. What are the security requirements for data storage and transmission?
+
+    Los datos sensibles, como la información de los usuarios, deben estar guardados en las bases de datos CosmosDB, SQL Server o Azure SQL Database.
+
+12. How should user authentication and authorization be managed?
+
+    La autenticación y autorización de datos deben ser manejada por OAuth 2.0 y se utilizarán tokens de acceso (JWT) con tiempos de expiración definidos.
+
+13. Are there any compliance requirements related to data security?
+
+    El sistema debe proteger los datos personales de los usuarios cumpliendo con las leyes acorde al país en el que se encuentre el sistema (Ley 8968 de Costa Rica para la protección de datos personales y la ISO Norma internacional).
+
+### Usability
+14. What are the usability standards for the user interface?
+
+    La interfaz de usuario debe proporcionar consistencia, facilidad de uso y un tiempo de respuesta rápido (no más de un segundo).
+
+15. How should the system accommodate users with disabilities?
+
+    El sistema debe cumplir con las pautas WCAG 2.1 para permitirle accesibilidad web a las personas con discapacidades.
+
+16. Are there specific requirements for user training and documentation?
+
+    Se proveerá un video manual de usuario donde se explicará la funcionalidad del sistema y se proporcionará una documentación clara y detallada, en inglés y en español.
+
+### Maintainability
+17. How easy should it be to update and modify the system?
+
+    El sistema estará diseñado con una arquitectura de microservicios, lo que permitirá que cada componente que requiera de actualización o modificación, se podrá realizar sin afectar a los demás componentes.
+
+18. What are the requirements for logging and monitoring system performance?
+
+    Se deben utilizar herramientas (ELK Stack) para registrar eventos y monitorear el rendimiento del sistema en tiempo real. El sistema debe generar alertas automáticas cuando se detecten problemas, y ofrecer una visualización clara del rendimiento para facilitar la toma de decisiones.
+
+19. How should the system handle version control and deployment?
+
+    Se debe utilizar Git para manejar el control de versiones, con un flujo de trabajo basado en ramas (GitFlow). Los despliegues deben gestionarse a través de Docker, permitiendo una facil escalabilidad.
+
 ### Interoperability
+20. How should the system integrate with existing software and hardware?
+
+    El sistema debe poder integrarse mediante APIs REST, haciendo uso de formatos estándar como JSON. Debe haver compatibilidad con sistemas de terceros, como PayPal y Sinpe para pagos, LiveChat para comunicaciones, y Trustpilot para reseñas de usuarios.
+
 21. Are there any standards or protocols that the system must adhere to?
 
     Como opera en Estados Unidos y Costa Rica, deberá seguir los estándares de ambos países. Entre estos estándares se encuentra la regulación para protección de datos, ciberseguridad, protección de menores de edad, seguridad de pagos y para asegurar la accesibilidad.
