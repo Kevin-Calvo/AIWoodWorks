@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .chat-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .send-button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        .send-button:hover {
+            background-color: #555;
+        }
+        .message {
+            margin: 10px 0;
+        }
+        .message p {
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .message.sender p {
+            background-color: #007bff;
+            color: white;
+            text-align: right;
+        }
+        .message.receiver p {
+            background-color: #f1f1f1;
+            color: black;
+            text-align: left;
+        }
+        .seal-deal-button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block; /* Display the button */
+            width: 100%;
+        }
+        .seal-deal-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with logo -->
+    <header>
+        <div class="logo">AIWoodworks</div>
+    </header>
+
+    <!-- Main container for chat -->
+    <div class="container">
+        <h2>Chat de negocio</h2>
+        <!-- Chat box to display messages -->
+        <div class="chat-box" id="chat-box">
+            <!-- Example messages 
+            <div class="message sender">
+                <p>Hey! Are we still on for the meeting tomorrow?</p>
+            </div>
+            <div class="message receiver">
+                <p>Yes, definitely! What time works for you?</p>
+            </div>
+            <div class="message sender">
+                <p>How about 10 AM?</p>
+            </div>
+            <div class="message receiver">
+                <p>Sounds good! I'll see you then.</p>
+            </div>-->
+        </div>
+        
+        <!-- Input group for user prompts -->
+        <div class="input-group">
+            <input type="text" id="user-input" placeholder="Type your message here..." />
+            <button class="send-button" onclick="sendMessage()">Send</button>
+        </div>
+
+        <!-- Button to seal the deal -->
+        <button class="seal-deal-button" id="seal-deal-button" onclick="sealDeal()">Seal Deal</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+
+            // Add user message to chat
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message sender';
+            userMessage.innerHTML = `<p>${userInput.value}</p>`;
+            chatBox.appendChild(userMessage);
+
+            // Simulate a response from the other person
+            const responseMessage = document.createElement('div');
+            responseMessage.className = 'message receiver';
+            responseMessage.innerHTML = `<p>Received: ${userInput.value}</p>`;
+            chatBox.appendChild(responseMessage);
+
+            // Clear input
+            userInput.value = '';
+
+            // Scroll to the bottom of the chat
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function sealDeal() {
+            alert('Deal sealed!'); // Placeholder for deal sealing action
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIWoodworks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        header nav {
+            position: relative;
+        }
+        .profile-button {
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 50px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+        }
+        .dropdown-menu a:hover {
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .post {
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        .post-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .post-content {
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        // Script to handle dropdown menu visibility
+        function toggleDropdown() {
+            const menu = document.getElementById('dropdown-menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        // Close dropdown if clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-button')) {
+                const menu = document.getElementById('dropdown-menu');
+                if (menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Header with logo and profile button -->
+    <header>
+        <div class="logo">AIWoodworks</div>
+        <nav>
+            <button class="profile-button" onclick="toggleDropdown()">Stuff</button>
+            <!-- Dropdown menu -->
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a href="#">My Profile</a>
+                <a href="#">Settings</a>
+                <a href="#">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main container for posts -->
+    <div class="container">
+        <h2>Posts</h2>
+        <!-- Post example (leave blank for now, will populate with database later) -->
+        <div class="post">
+            <div class="post-title">Sample Post Title</div>
+            <div class="post-content">This is a sample post. The real posts will be loaded here from the database later.</div>
+        </div>
+
+        <!-- Empty posts section for future use -->
+        <!-- Dynamically populated with posts from database -->
+    </div>
+</body>
+</html>
