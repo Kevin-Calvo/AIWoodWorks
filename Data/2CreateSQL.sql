@@ -17,7 +17,7 @@ ALTER TABLE
 CREATE TABLE "MaterialMueble"(
     "idMaterialMueble" BIGINT NOT NULL,
     "idOferta" BIGINT NOT NULL,
-    "idMaterial" BIGINT NOT NULL,
+    "idMaterial" VARCHAR(255) NOT NULL,
     "Descripcion" VARCHAR(255) NOT NULL
 );
 ALTER TABLE
@@ -27,7 +27,7 @@ CREATE TABLE "IARequest"(
     "Prompt" VARCHAR(255) NOT NULL,
     "Imagen" BIGINT NOT NULL,
     "idUsuario" BIGINT NOT NULL,
-    "idTipoMueble" BIGINT NOT NULL
+    "TipoMueble" VARCHAR(255) NOT NULL
 );
 ALTER TABLE
     "IARequest" ADD CONSTRAINT "iarequest_idrequest_primary" PRIMARY KEY("idRequest");
@@ -74,15 +74,12 @@ CREATE TABLE "Oferta"(
 );
 ALTER TABLE
     "Oferta" ADD CONSTRAINT "oferta_idoferta_primary" PRIMARY KEY("idOferta");
-CREATE TABLE "Ubicacion"(
-    "idUbicacion" BIGINT NOT NULL,
-    "Direccion" VARCHAR(255) NOT NULL,
-    "idCiudad" BIGINT NOT NULL
+CREATE TABLE "Material"(
+    "idMaterial" BIGINT NOT NULL,
+    "Nombre" VARCHAR(255) NOT NULL
 );
-CREATE INDEX "ubicacion_idubicacion_index" ON
-    "Ubicacion"("idUbicacion");
 ALTER TABLE
-    "Ubicacion" ADD CONSTRAINT "ubicacion_idubicacion_primary" PRIMARY KEY("idUbicacion");
+    "Material" ADD CONSTRAINT "material_idmaterial_primary" PRIMARY KEY("idMaterial");
 CREATE TABLE "Ciudad"(
     "idCiudad" BIGINT NOT NULL,
     "Nombre" VARCHAR(255) NOT NULL,
@@ -98,12 +95,21 @@ CREATE TABLE "UsuarioUbicacion"(
     "idUbicacion" BIGINT NOT NULL,
     "Latitud" DECIMAL(9, 6) NOT NULL,
     "Longitud" BIGINT NOT NULL,
-    "zipcode" VARCHAR(9) NOT NULL
+    "zipcode" VARCHAR(9) NOT NULL,
+    "Direccion" VARCHAR(255) NOT NULL,
+    "idCiudad" BIGINT NOT NULL
 );
 CREATE INDEX "usuarioubicacion_idusuarioubicacion_index" ON
     "UsuarioUbicacion"("idUsuarioUbicacion");
 ALTER TABLE
     "UsuarioUbicacion" ADD CONSTRAINT "usuarioubicacion_idusuarioubicacion_primary" PRIMARY KEY("idUsuarioUbicacion");
+CREATE TABLE "TipoMueble"(
+    "idTipo" BIGINT NOT NULL,
+    "Nombre" NVARCHAR(255) NOT NULL,
+    "Descripcion" NVARCHAR(255) NOT NULL
+);
+ALTER TABLE
+    "TipoMueble" ADD CONSTRAINT "tipomueble_idtipo_primary" PRIMARY KEY("idTipo");
 CREATE TABLE "Pais"(
     "idPais" BIGINT NOT NULL,
     "Nombre" VARCHAR(255) NOT NULL
@@ -118,12 +124,8 @@ CREATE TABLE "TipoUsuario"(
 );
 ALTER TABLE
     "TipoUsuario" ADD CONSTRAINT "tipousuario_idtipo_primary" PRIMARY KEY("idTipo");
-CREATE TABLE "Material"(
-    "idMaterial" BIGINT NOT NULL,
-    "Nombre" VARCHAR(255) NOT NULL
-);
 ALTER TABLE
-    "Material" ADD CONSTRAINT "material_idmaterial_primary" PRIMARY KEY("idMaterial");
+    "IARequest" ADD CONSTRAINT "iarequest_tipomueble_foreign" FOREIGN KEY("TipoMueble") REFERENCES "TipoMueble"("idTipo");
 ALTER TABLE
     "Oferta" ADD CONSTRAINT "oferta_idfabricante_foreign" FOREIGN KEY("idFabricante") REFERENCES "Fabricante"("idFabricante");
 ALTER TABLE
@@ -137,22 +139,20 @@ ALTER TABLE
 ALTER TABLE
     "Proyecto" ADD CONSTRAINT "proyecto_idoferta_foreign" FOREIGN KEY("IdOferta") REFERENCES "Oferta"("idOferta");
 ALTER TABLE
+    "MaterialMueble" ADD CONSTRAINT "materialmueble_idmaterial_foreign" FOREIGN KEY("idMaterial") REFERENCES "Material"("idMaterial");
+ALTER TABLE
     "Usuario" ADD CONSTRAINT "usuario_tipo_foreign" FOREIGN KEY("Tipo") REFERENCES "TipoUsuario"("idTipo");
 ALTER TABLE
     "IARequest" ADD CONSTRAINT "iarequest_idusuario_foreign" FOREIGN KEY("idUsuario") REFERENCES "Usuario"("idUsuario");
 ALTER TABLE
-    "Ubicacion" ADD CONSTRAINT "ubicacion_idciudad_foreign" FOREIGN KEY("idCiudad") REFERENCES "Ciudad"("idCiudad");
+    "UsuarioUbicacion" ADD CONSTRAINT "usuarioubicacion_idciudad_foreign" FOREIGN KEY("idCiudad") REFERENCES "Ciudad"("idCiudad");
 ALTER TABLE
     "UsuarioUbicacion" ADD CONSTRAINT "usuarioubicacion_idusuario_foreign" FOREIGN KEY("idUsuario") REFERENCES "Usuario"("idUsuario");
 ALTER TABLE
     "MaterialMueble" ADD CONSTRAINT "materialmueble_idoferta_foreign" FOREIGN KEY("idOferta") REFERENCES "Oferta"("idOferta");
-ALTER TABLE
-    "MaterialMueble" ADD CONSTRAINT "materialmueble_idmaterial_foreign" FOREIGN KEY("idMaterial") REFERENCES "Material"("idMaterial");
 ALTER TABLE
     "Fabricante" ADD CONSTRAINT "fabricante_idusuario_foreign" FOREIGN KEY("idUsuario") REFERENCES "Usuario"("idUsuario");
 ALTER TABLE
     "Post" ADD CONSTRAINT "post_idiarequest_foreign" FOREIGN KEY("idIARequest") REFERENCES "IARequest"("idRequest");
 ALTER TABLE
     "Post" ADD CONSTRAINT "post_estado_foreign" FOREIGN KEY("Estado") REFERENCES "Estado"("idEstado");
-ALTER TABLE
-    "UsuarioUbicacion" ADD CONSTRAINT "usuarioubicacion_idubicacion_foreign" FOREIGN KEY("idUbicacion") REFERENCES "Ubicacion"("idUbicacion");
