@@ -216,3 +216,9 @@ A continuación se provee un conjunto de preguntas o checklist que facilita la i
 29. How should the documentation be maintained and updated?
     
     La documentación se debe de mantener en un repositorio, en este caso se usará Google Drive. Toda la documentación debe de tener un responsable que se encargue de que se mantenga actualizada y veráz. La documentación debe de ser actualizada cada vez que haya un cambio, se debe mantener un control de los cambios y periodicamente se debe de revisar para asegurarse de que si se esté actualizando.
+
+
+### Elementos UI
+
+![matrixUI](https://github.com/user-attachments/assets/5666066a-0d43-497a-bb89-a4b0193137d1)
+
