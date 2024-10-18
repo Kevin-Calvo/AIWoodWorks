@@ -222,3 +222,30 @@ A continuación se provee un conjunto de preguntas o checklist que facilita la i
 
 ![matrixUI](https://github.com/user-attachments/assets/5666066a-0d43-497a-bb89-a4b0193137d1)
 
+### Pantallas
+
+Main page:
+![App](https://github.com/user-attachments/assets/26e18c71-07e2-4931-8416-6b0fb3e4e27a)
+
+Main page user:
+![AppReg](https://github.com/user-attachments/assets/d180acf7-81cc-42fb-8903-f0bfefbcaa8c)
+
+Chat page:
+![Chat](https://github.com/user-attachments/assets/fd76bc4e-4f68-45fa-80cf-394d3368af52)
+
+Login:
+![Login](https://github.com/user-attachments/assets/0ab8eb74-d3c5-4819-a740-af7071730685)
+
+Registration:
+![Register](https://github.com/user-attachments/assets/acffec12-4f7c-4f9d-83f7-0ac0a289b9bc)
+
+Profile page:
+![Profile](https://github.com/user-attachments/assets/d80bd8e6-dca7-454e-b560-88367e983832)
+
+AI Request:
+![Request](https://github.com/user-attachments/assets/9f3667ee-f720-483b-b0da-dadedc4660fa)
+
+Payment page:
+![Payment](https://github.com/user-attachments/assets/a2c5f98e-be7b-4bc4-8df2-984296dab013)
+
+
