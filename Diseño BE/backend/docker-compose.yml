@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend-container
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:sqlserver://sqldb-caso4-server.database.windows.net:1433;database=Proyecto"
+      SPRING_DATASOURCE_USERNAME: "asaraya@sqldb-caso4-server"
+      SPRING_DATASOURCE_PASSWORD: "Guachin321!"
+      SPRING_DATASOURCE_ENCRYPT: "true"
+      SPRING_DATASOURCE_TRUST_SERVER_CERTIFICATE: "false"
+      SPRING_DATASOURCE_HOSTNAME_IN_CERTIFICATE: "*.database.windows.net"
+      SPRING_DATASOURCE_LOGIN_TIMEOUT: "30"
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
