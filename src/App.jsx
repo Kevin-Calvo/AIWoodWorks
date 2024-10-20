@@ -1,34 +1,28 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      {/* Header with logo and login/register options */}
+      {/* Header with logo and navigation */}
       <header>
         <div className="logo">AIWoodworks</div>
         <nav>
-          <a href="#">Login</a>
-          <a href="#">Register</a>
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
         </nav>
       </header>
 
-      {/* Main container for posts */}
+      {/* Main container with navigation buttons */}
       <div className="container">
-        <h2>Posts</h2>
-        {/* Sample post */}
-        <div className="post">
-          <div className="post-title">Sample Post Title</div>
-          <div className="post-content">
-            This is a sample post. The real posts will be loaded here from the database later.
-          </div>
-        </div>
+        <h2>Welcome to AIWoodworks</h2>
+        <p>Select a section to continue:</p>
 
-        {/* Future posts will be dynamically populated here */}
+        {/* Navigation Buttons */}
+        <div className="button-group">
+          <a href="/chat" className="nav-button">Chat</a>
+          <a href="/request" className="nav-button">Request Design</a>
+          <a href="/profile" className="nav-button">Profile</a>
+        </div>
       </div>
     </>
   );

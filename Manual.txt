@@ -1,0 +1,7 @@
+Para correr el frontend se necesitan los siguientes comandos
+
+npm install
+
+npm install react-router-dom
+
+npm run dev

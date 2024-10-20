@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate from react-router-dom
 import './Chat.css';
 
 function Chat() {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState('');
+  const navigate = useNavigate();  // Initialize navigate
 
   const sendMessage = () => {
     if (userInput.trim() === '') return;
@@ -23,7 +25,8 @@ function Chat() {
   };
 
   const sealDeal = () => {
-    alert('Deal sealed!'); // Placeholder for deal sealing action
+    // Redirect to the payment screen when sealing the deal
+    navigate('/payment');  // Navigate to the payment page
   };
 
   return (

@@ -6,14 +6,6 @@ body {
   background-color: #f7f7f7;
 }
 
-/* Root container */
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 /* Header styling */
 header {
   background-color: #333;
@@ -24,49 +16,56 @@ header {
   align-items: center;
 }
 
-/* Logo in header */
 header .logo {
   font-size: 24px;
   font-weight: bold;
 }
 
-/* Navigation links in header */
-header nav {
-  display: flex;
-  gap: 15px;
-}
-
 header nav a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  margin-left: 20px;
 }
 
-/* Container for main content */
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main container styling */
 .container {
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 500px;
+  margin: 50px auto;
   padding: 20px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-/* Post styling */
-.post {
-  padding: 20px;
+h2 {
   margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #fff;
 }
 
-.post-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
+/* Navigation button group */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
-.post-content {
-  font-size: 14px;
+.nav-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-button:hover {
+  background-color: #0056b3;
 }
