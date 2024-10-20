@@ -1,7 +1,6 @@
 /* CosmosDb se usara para almacenar unicamente las imagenes
 La informacion relacionada a las imagenes se guardara en Azure Sql Server
-En las tablas relacionadas con las imagenes habrá una foreign key 
-que apunta a una tabla donde se conectan los muebles con sus imagenes. */
+En las tablas relacionadas con las imagenes habrá una llave con el id para poder encontrar las imagenes. */
 
 {
     "id": "1",
