@@ -228,6 +228,10 @@ A continuación se provee un conjunto de preguntas o checklist que facilita la i
 
 ![WhatsApp Image 2024-10-20 at 23 18 45](https://github.com/user-attachments/assets/24b05085-0827-4971-97a6-b057ed1eabdb)
 
+### Diagrama de clases
+
+![WhatsApp Image 2024-10-20 at 23 45 17](https://github.com/user-attachments/assets/e55ca355-69a5-445c-9a47-dacd6b816fa9)
+
 
 ### Pantallas
 
