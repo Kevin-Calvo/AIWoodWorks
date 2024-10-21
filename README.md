@@ -218,10 +218,15 @@ A continuación se provee un conjunto de preguntas o checklist que facilita la i
     La documentación se debe de mantener en un repositorio, en este caso se usará Google Drive. Toda la documentación debe de tener un responsable que se encargue de que se mantenga actualizada y veráz. La documentación debe de ser actualizada cada vez que haya un cambio, se debe mantener un control de los cambios y periodicamente se debe de revisar para asegurarse de que si se esté actualizando.
 
 
+## Diseño UI
+
 ### Elementos UI
 
 ![matrixUI](https://github.com/user-attachments/assets/5666066a-0d43-497a-bb89-a4b0193137d1)
 
+### Diagrama de capas
+
+![WhatsApp Image 2024-10-20 at 23 18 45](https://github.com/user-attachments/assets/24b05085-0827-4971-97a6-b057ed1eabdb)
 
 
 ### Pantallas
