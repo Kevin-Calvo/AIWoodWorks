@@ -308,3 +308,12 @@ Una vez que se llegó a un acuerdo con el especialista, se puede sellar el trato
 ![Ejemplo del modelo en json](https://github.com/Kevin-Calvo/AIWoodWorks/blob/98e161b9b82e3a3a1ecf97b3dc7e9bba599951e5/Data/modeloCosmosDb.json)
 
 ![Carpeta con el modelo para Design](https://github.com/Kevin-Calvo/AIWoodWorks/tree/0cd6427dd4ce3086a0a4705a5f0b4aa95186bab8/Dise%C3%B1o%20BE/backend/src/main/java/com/AIWoodWorks/backend/model) 
+
+
+## Formulario
+
+![Imagen](https://github.com/Kevin-Calvo/AIWoodWorks/blob/a345db5cb8250e0aba1f749ed1971b6f5e3880ed/Imagenes/imagen1.png)
+![Imagen](https://github.com/Kevin-Calvo/AIWoodWorks/blob/a345db5cb8250e0aba1f749ed1971b6f5e3880ed/Imagenes/imagen2.png)
+![Imagen](https://github.com/Kevin-Calvo/AIWoodWorks/blob/a345db5cb8250e0aba1f749ed1971b6f5e3880ed/Imagenes/imagen3.png)
+![Imagen](https://github.com/Kevin-Calvo/AIWoodWorks/blob/a345db5cb8250e0aba1f749ed1971b6f5e3880ed/Imagenes/imagen4.png)
+![Imagen](https://github.com/Kevin-Calvo/AIWoodWorks/blob/a345db5cb8250e0aba1f749ed1971b6f5e3880ed/Imagenes/imagen5.png)
