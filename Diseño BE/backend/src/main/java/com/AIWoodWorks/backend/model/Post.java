@@ -1,40 +1,53 @@
 package com.AIWoodWorks.backend.model;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 public class Post {
 
-    private Long id;
-    private String title;
-    private String content;
+    private Long idPost;
+    private Long idMueble;
+    private LocalDate fechaPublicacion;
+    private BigDecimal presupuesto;
 
     public Post() {}
 
-    public Post(Long id, String title, String content) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
+    public Post(Long idPost, Long idMueble, LocalDate fechaPublicacion, BigDecimal presupuesto) {
+        this.idPost = idPost;
+        this.idMueble = idMueble;
+        this.fechaPublicacion = fechaPublicacion;
+        this.presupuesto = presupuesto;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdPost() {
+        return idPost;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdPost(Long idPost) {
+        this.idPost = idPost;
     }
 
-    public String getTitle() {
-        return title;
+    public Long getIdMueble() {
+        return idMueble;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setIdMueble(Long idMueble) {
+        this.idMueble = idMueble;
     }
 
-    public String getContent() {
-        return content;
+    public LocalDate getFechaPublicacion() {
+        return fechaPublicacion;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setFechaPublicacion(LocalDate fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
+    }
+
+    public BigDecimal getPresupuesto() {
+        return presupuesto;
+    }
+
+    public void setPresupuesto(BigDecimal presupuesto) {
+        this.presupuesto = presupuesto;
     }
 }
