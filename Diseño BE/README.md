@@ -7,6 +7,8 @@ Ahora con los cambios, el diagrama se mantiene dentro del Scope del proyecto.
 
 ## Diagrama de Clases
 
+![Diagrama de Clases](./Diagrama%20de%20Clases%20Version%20Final.png)
+
 Capas del sistema:
 
 - **Modelo (Entities)**: Contiene las entidades que representan los objetos clave del sistema.
