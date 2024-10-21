@@ -217,43 +217,5 @@ A continuación se provee un conjunto de preguntas o checklist que facilita la i
     
     La documentación se debe de mantener en un repositorio, en este caso se usará Google Drive. Toda la documentación debe de tener un responsable que se encargue de que se mantenga actualizada y veráz. La documentación debe de ser actualizada cada vez que haya un cambio, se debe mantener un control de los cambios y periodicamente se debe de revisar para asegurarse de que si se esté actualizando.
 
-
-### Elementos UI
-
-![matrixUI](https://github.com/user-attachments/assets/5666066a-0d43-497a-bb89-a4b0193137d1)
-
-### Pantallas
-
-Main page:
-Aquí se tiene la primera pantalla que se ve al entrar a la aplicación web. En esta se verán los posts subidos por usuarios, pero no se podrá interactuar con la interfaz a menos que el usuario tenga su cuenta. Puede iniciar sesión o registrarse desde aquí.
-![App](https://github.com/user-attachments/assets/26e18c71-07e2-4931-8416-6b0fb3e4e27a)
-
-Main page user:
-Una vez el usuario haya ingresado sesión esta pantalla principal se vería igual pero con la opción de acceder a su perfil. Además podrá interactuar con posts e iniciar una request a la AI.
-![AppReg](https://github.com/user-attachments/assets/d180acf7-81cc-42fb-8903-f0bfefbcaa8c)
-
-Chat page:
-Cuando se cumplió con una request y se puso en contacto con otro usuario, se podrá acceder a la pantalla de chat donde se pueden enviar mensajes y comunicar entre sí. Existe un botón para sellar el trato que lleva al usuario a la pantalla de proceso de pago.
-![Chat](https://github.com/user-attachments/assets/fd76bc4e-4f68-45fa-80cf-394d3368af52)
-
-Login:
-El usuario puede elegir hacer proceso de login con su correo electrónico y contraseña para iniciar sesión.
-![Login](https://github.com/user-attachments/assets/0ab8eb74-d3c5-4819-a740-af7071730685)
-
-Registration:
-Si el usuario no tiene una cuenta, puede proceder a registrarse con algunos de sus datos personales como nombre, correo, localización, número de teléfono, y se pregunta si trabaja en el área de creación de muebles.
-![Register](https://github.com/user-attachments/assets/acffec12-4f7c-4f9d-83f7-0ac0a289b9bc)
-
-Profile page:
-En la página para ver su perfil de usuario se muestra la información que se le pidió en el proceso de registro a la aplicación.
-![Profile](https://github.com/user-attachments/assets/d80bd8e6-dca7-454e-b560-88367e983832)
-
-AI Request:
-Cuando el usuario desea hacer una request a la AI, tiene acceso a esta pantalla. Aquí puede enviar prompts a la AI, la cual responderá con diseños que el usuario haya descrito. Una vez se decidió el usuario por un deseño puede seleccionar para proceder con el siguiente paso y buscar a un especialista.
-![Request](https://github.com/user-attachments/assets/9f3667ee-f720-483b-b0da-dadedc4660fa)
-
-Payment page:
-Una vez que se llegó a un acuerdo con el especialista, se puede sellar el trato, lo cual lleva a la pantalla de pago. Se puede realizar con tarjeta o sinpe. Se le piden los datos de la tarjeta o número de teléfono dependiendo del método.
-![Payment](https://github.com/user-attachments/assets/a2c5f98e-be7b-4bc4-8df2-984296dab013)
-
+### Pantallas:
 
