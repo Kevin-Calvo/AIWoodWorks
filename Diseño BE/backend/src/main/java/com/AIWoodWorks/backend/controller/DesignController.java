@@ -1,34 +1,35 @@
-package com.AIWoodWorks.backend.controller;
+/*package com.AIWoodWorks.backend.controller;
 
-import org.springframework.http.HttpStatus;
+import com.AIWoodWorks.backend.model.Design;
+import com.AIWoodWorks.backend.service.DesignService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.AIWoodWorks.backend.service.DesignService;
-import com.AIWoodWorks.backend.model.Design;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/designs")
+@RequestMapping("/api/designs")
 public class DesignController {
 
-    private final DesignService designService;
+    @Autowired
+    private DesignService designService;
 
-    public DesignController(DesignService designService) {
-        this.designService = designService;
+    // Endpoint para guardar un diseño
+    // No esta implementado
+
+    // Endpoint para obtener un diseño por su ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Design> getDesignById(@PathVariable String id) {
+        Optional<Design> design = designService.getDesignById(id);
+        return design.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
-    public ResponseEntity<String> createDesign(@RequestBody Design design) {
-        designService.createDesign(design);
-        return new ResponseEntity<>("Design created successfully", HttpStatus.CREATED);
-    }
-
-    @GetMapping("/{designId}")
-    public ResponseEntity<Design> getDesignById(@PathVariable Long designId) {
-        Design design = designService.getDesignById(designId);
-        if (design != null) {
-            return new ResponseEntity<>(design, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    // Endpoint para obtener todos los diseños
+    @GetMapping
+    public ResponseEntity<Iterable<Design>> getAllDesigns() {
+        Iterable<Design> designs = designService.getAllDesigns();
+        return ResponseEntity.ok(designs);
     }
 }
+*/

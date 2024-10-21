@@ -1,23 +1,31 @@
-package com.AIWoodWorks.backend.service;
+/*package com.AIWoodWorks.backend.service;
 
-import org.springframework.stereotype.Service;
 import com.AIWoodWorks.backend.model.Design;
 import com.AIWoodWorks.backend.repository.DesignRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class DesignService {
 
-    private final DesignRepository designRepository;
+    @Autowired
+    private DesignRepository designRepository;
 
-    public DesignService(DesignRepository designRepository) {
-        this.designRepository = designRepository;
+    // Método para guardar un diseño 
+    public Design saveDesign(Design design) {
+        return designRepository.save(design);
     }
 
-    public void createDesign(Design design) {
-        designRepository.save(design);
+    // Método para obtener un diseño por su ID
+    public Optional<Design> getDesignById(String id) {
+        return designRepository.findById(id);
     }
 
-    public Design getDesignById(Long designId) {
-        return designRepository.findById(designId);
+    // Método para obtener todos los diseños
+    public Iterable<Design> getAllDesigns() {
+        return designRepository.findAll();
     }
 }
+*/
