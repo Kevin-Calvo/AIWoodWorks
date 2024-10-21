@@ -4,5 +4,5 @@ En las tablas relacionadas con las imagenes habrá una llave con el id para pode
 
 {
     "id": "1",
-    "image": "imagen codificada" 
+    "imageURL": "imagen codificada" 
 }
