@@ -282,3 +282,11 @@ Una vez que se llegó a un acuerdo con el especialista, se puede sellar el trato
 
 ![Payment](https://github.com/user-attachments/assets/a2c5f98e-be7b-4bc4-8df2-984296dab013)
 
+
+
+## Diseño de los datos
+
+### Azure SQL Server
+
+
+### Azure Cosmos DB
