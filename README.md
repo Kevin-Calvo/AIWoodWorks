@@ -288,5 +288,14 @@ Una vez que se llegó a un acuerdo con el especialista, se puede sellar el trato
 
 ### Azure SQL Server
 
+![Diagrama SQL](https://github.com/Kevin-Calvo/AIWoodWorks/blob/3897dfa18559b47f3c1c2ce6846539a4e32193a9/Data/Imagenes/5DiagramaSQL.png)
+
+![Carpeta con los creates](https://github.com/Kevin-Calvo/AIWoodWorks/tree/1e59e9cd518f8e9f382e7538998084fadd5253bc/Data)
+
+5CreateSQL versión final.
 
 ### Azure Cosmos DB
+
+![Ejemplo del modelo en json](https://github.com/Kevin-Calvo/AIWoodWorks/blob/98e161b9b82e3a3a1ecf97b3dc7e9bba599951e5/Data/modeloCosmosDb.json)
+
+![Carpeta con el modelo para Design](https://github.com/Kevin-Calvo/AIWoodWorks/tree/98e161b9b82e3a3a1ecf97b3dc7e9bba599951e5/Dise%C3%B1o%20BE/backend/src/main/java/com/AIWoodWorks/backend/model) 
