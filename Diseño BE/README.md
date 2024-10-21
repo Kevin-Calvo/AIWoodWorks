@@ -122,6 +122,51 @@ Capas del sistema:
 3. **LiveChatService**
    - Gestiona los mensajes en tiempo real entre los usuarios y los fabricantes.
 
-### Conclusión
+# Diagrama de Bloques
 
-El diagrama muestra la estructura del Backend, se muestran los componentes del sistema y cómo interactúan las capas de modelo, controladores, servicios, repositorios y servicios de terceros para cumplir con los requisitos de generación de diseños y mensajería en tiempo real.
+![Diagrama de Bloques](./Diagrama%20de%20bloques%20version%20final.png)
+
+Capas del Sistema:
+
+- **Model**: Define las entidades principales que se utilizan en el sistema.
+- **Controllers**: Son los responsables de gestionar las solicitudes HTTP entrantes y derivarlas al servicio correspondiente.
+- **Services**: Contienen la lógica de negocio del sistema. Procesan las solicitudes de los controladores y se comunican con los repositorios y servicios de terceros.
+- **Repository**: Encargados de gestionar las conexiones con las bases de datos y realizar las operaciones CRUD (Crear, Leer, Actualizar, Borrar).
+- **3rd Party Services**: Servicios externos que permiten generar los diseños solicitados y gestionar la comunicación en tiempo real.
+
+## Modelo
+
+- **Post**: Representa una publicación de diseño.
+- **Service**: Representa una solicitud de servicio relacionada con la creación de diseños.
+- **Design**: Entidad que contiene los datos de un diseño generado por IA.
+- **Chat**: Gestiona los mensajes entre los usuarios y los fabricantes.
+
+## Controladores
+
+- **PostController**: Gestiona las solicitudes relacionadas con las publicaciones de diseño.
+- **UserController**: Gestiona las solicitudes relacionadas con los usuarios.
+- **DesignController**: Gestiona las solicitudes para la generación de diseños.
+- **ChatController**: Gestiona la comunicación entre usuarios y fabricantes.
+
+## Servicios
+
+- **PostService**: Implementa la lógica de negocio relacionada con las publicaciones.
+- **UserService**: Gestiona la creación y recuperación de información de usuarios.
+- **DesignService**: Genera los diseños basados en IA y gestiona el historial de diseños.
+- **ChatService**: Gestiona la mensajería en tiempo real entre los usuarios y los fabricantes.
+
+## Repositorios
+
+- **PostRepository**: Interactúa con la base de datos para almacenar y recuperar publicaciones.
+- **UserRepository**: Gestiona las operaciones en la base de datos para los usuarios.
+- **DesignRepository**: Se encarga de las operaciones de almacenamiento y recuperación de los diseños generados.
+
+## Bases de Datos
+
+- **Azure SQL**: Base de datos utilizada para almacenar publicaciones y usuarios.
+- **CosmosDB**: Base de datos NoSQL utilizada para almacenar los diseños generados.
+
+## Servicios Externos
+
+- **OpenAI, MidJourney, FLUX 1, DALL-E 3**: APIs de terceros que permiten generar los diseños solicitados.
+- **LiveChat**: Servicio de mensajería en tiempo real que permite la comunicación entre los usuarios y los fabricantes.
