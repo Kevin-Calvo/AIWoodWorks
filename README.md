@@ -228,6 +228,10 @@ A continuación se provee un conjunto de preguntas o checklist que facilita la i
 
 ![WhatsApp Image 2024-10-20 at 23 18 45](https://github.com/user-attachments/assets/24b05085-0827-4971-97a6-b057ed1eabdb)
 
+### Diagrama de clases
+
+![WhatsApp Image 2024-10-20 at 23 45 17](https://github.com/user-attachments/assets/e55ca355-69a5-445c-9a47-dacd6b816fa9)
+
 
 ### Pantallas
 
@@ -303,4 +307,4 @@ Una vez que se llegó a un acuerdo con el especialista, se puede sellar el trato
 
 ![Ejemplo del modelo en json](https://github.com/Kevin-Calvo/AIWoodWorks/blob/98e161b9b82e3a3a1ecf97b3dc7e9bba599951e5/Data/modeloCosmosDb.json)
 
-![Carpeta con el modelo para Design](https://github.com/Kevin-Calvo/AIWoodWorks/tree/98e161b9b82e3a3a1ecf97b3dc7e9bba599951e5/Dise%C3%B1o%20BE/backend/src/main/java/com/AIWoodWorks/backend/model) 
+![Carpeta con el modelo para Design](https://github.com/Kevin-Calvo/AIWoodWorks/tree/0cd6427dd4ce3086a0a4705a5f0b4aa95186bab8/Dise%C3%B1o%20BE/backend/src/main/java/com/AIWoodWorks/backend/model) 
