@@ -18,13 +18,14 @@ public class PostRepository {
 
     static {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:sqlserver://sqldb-caso4-server.database.windows.net:1433;database=Proyecto;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-        config.setUsername("asaraya@sqldb-caso4-server");
-        config.setPassword("Guachin321!");
+        config.setJdbcUrl("jdbc:sqlserver://aiwoodworkssrvr.database.windows.net:1433;database=aiwoodworks_db;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+        config.setUsername("asaraya@aiwoodworkssrvr");
+        config.setPassword("Guachin321!"); 
         config.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         config.setMaximumPoolSize(10);
         dataSource = new HikariDataSource(config);
     }
+
 
     public void save(Post post) {
         String SQL = "INSERT INTO Post (idMueble, fechaPublicacion, presupuesto) VALUES (?, ?, ?)";

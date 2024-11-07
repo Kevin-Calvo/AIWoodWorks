@@ -7,8 +7,8 @@ services:
       dockerfile: Dockerfile
     container_name: backend-container
     environment:
-      SPRING_DATASOURCE_URL: "jdbc:sqlserver://sqldb-caso4-server.database.windows.net:1433;database=Proyecto"
-      SPRING_DATASOURCE_USERNAME: "asaraya@sqldb-caso4-server"
+      SPRING_DATASOURCE_URL: "jdbc:sqlserver://aiwoodworkssrvr.database.windows.net:1433;database=aiwoodworks_db"
+      SPRING_DATASOURCE_USERNAME: "asaraya@aiwoodworkssrvr"
       SPRING_DATASOURCE_PASSWORD: "Guachin321!"
       SPRING_DATASOURCE_ENCRYPT: "true"
       SPRING_DATASOURCE_TRUST_SERVER_CERTIFICATE: "false"
@@ -16,6 +16,9 @@ services:
       SPRING_DATASOURCE_LOGIN_TIMEOUT: "30"
     ports:
       - "8080:8080"
+    volumes:
+      - "C:/Users/asara/Documents/Andres Tec/6. Semestre ll 2024/Diseño de Software/AIWoodWorks/Diseño BE/backend/target/backend-0.0.1-SNAPSHOT.jar:/app/backend.jar"
+      - "C:/Users/asara/Documents/Andres Tec/6. Semestre ll 2024/Diseño de Software/AIWoodWorks/Diseño BE/designs:/app/designs"  # Mounts designs directory
     networks:
       - app-network
 
