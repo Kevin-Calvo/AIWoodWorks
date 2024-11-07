@@ -7,12 +7,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class StableDiffusionService {
@@ -71,6 +75,18 @@ public class StableDiffusionService {
         } catch (Exception e) {
             e.printStackTrace();
             return "Unexpected error: " + e.getMessage();
+        }
+    }
+
+    public Resource getImage(String imageName) {
+        try {
+            Path imagePath = Paths.get("/app/designs/" + imageName);
+            if (!Files.exists(imagePath)) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Image not found");
+            }
+            return new UrlResource(imagePath.toUri());
+        } catch (IOException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error retrieving image", e);
         }
     }
 }

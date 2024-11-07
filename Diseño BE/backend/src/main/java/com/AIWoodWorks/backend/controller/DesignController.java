@@ -36,7 +36,18 @@ public class DesignController {
 
 package com.AIWoodWorks.backend.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +57,7 @@ import com.AIWoodWorks.backend.thirdpartyservices.StableDiffusionService;
 
 @RestController
 @RequestMapping("/api/imagenes")
+@CrossOrigin(origins = "http://localhost:5173") // Permite CORS desde este origen
 public class DesignController {
 
     @Autowired
@@ -54,5 +66,21 @@ public class DesignController {
     @PostMapping("/generate")
     public String generateImage(@RequestBody String prompt) {
         return stableDiffusionService.generateImage(prompt);
+    }
+
+    @GetMapping("/get/{imageName}")
+    public ResponseEntity<Resource> getImage(@PathVariable String imageName) {
+        Resource image = stableDiffusionService.getImage(imageName);
+        String contentType = "application/octet-stream";
+        try {
+            contentType = Files.probeContentType(Paths.get(image.getURI()));
+        } catch (IOException e) {
+            // Log error and use default content type
+        }
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(contentType))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + image.getFilename() + "\"")
+                .body(image);
     }
 }

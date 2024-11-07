@@ -9,35 +9,52 @@ function AIImageRequest() {
 
   const sendMessage = async () => {
     const userInput = userInputRef.current.value;
-
+  
     // Add user message to chat
     setMessages((prevMessages) => [
       ...prevMessages,
       { text: `You: ${userInput}`, isUser: true },
     ]);
-
-    // Enviar el prompt al backend para obtener la imagen generada
+  
+    // Enviar el prompt al backend para generar la imagen
     try {
       const response = await fetch('http://localhost:8080/api/imagenes/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ prompt: userInput }), // Enviamos el prompt al backend
+        body: JSON.stringify({ prompt: userInput }),
       });
-
+  
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
 
-      const data = await response.json(); // Suponiendo que el backend devuelve JSON con la URL de la imagen
+      const responseData = await response.text();
 
-      // Agregar la respuesta de la IA con la imagen al chat
+      // Usar una expresión regular para encontrar el nombre del archivo y manejar el caso de nulo
+      const match = responseData.match(/generated_image_\d+\.png/);
+      if (!match) {
+        throw new Error("Image name not found in response");
+      }
+      const imageName = match[0];
+
+      // Realizar el GET para obtener la imagen
+      const imageResponse = await fetch(`http://localhost:8080/api/imagenes/get/${imageName}`);
+      if (!imageResponse.ok) {
+        throw new Error(`Error fetching image: ${imageResponse.status}`);
+      }
+      
+      // Convertir la respuesta a blob y crear una URL local para mostrar la imagen
+      const imageBlob = await imageResponse.blob();
+      const imageUrl = URL.createObjectURL(imageBlob);
+
+      // Agregar la imagen al chat como respuesta de la IA
       setMessages((prevMessages) => [
         ...prevMessages,
         {
           text: 'AI: Here is your design suggestion!',
-          image: data.imageUrl || 'https://via.placeholder.com/300', // Usa la URL de la imagen devuelta
+          image: imageUrl,
         },
       ]);
     } catch (error) {
@@ -49,16 +66,18 @@ function AIImageRequest() {
         },
       ]);
     }
-
+  
     // Mostrar el botón "Make Design"
     setShowDesignButton(true);
-
+  
     // Limpiar el input
     userInputRef.current.value = '';
-
+  
     // Desplazar el chat hacia abajo
     chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
   };
+
+  
 
   const makeDesign = () => {
     alert('Design made successfully!'); // Placeholder para la acción de hacer el diseño
