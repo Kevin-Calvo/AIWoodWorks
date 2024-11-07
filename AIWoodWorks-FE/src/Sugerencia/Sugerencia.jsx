@@ -8,9 +8,9 @@ function SugerenciaPage() {
   useEffect(() => {
     // Puedes reemplazar esto con una llamada a la API para obtener los fabricantes
     setFabricantes([
-      { id: 1, name: 'Fabricante 1', location: 'San José, Costa Rica', price: 5, rating: 4.5 },
-      { id: 2, name: 'Fabricante 2', location: 'San Francisco, USA', price: 4, rating: 4.8 },
-      { id: 3, name: 'Fabricante 3', location: 'Ciudad de México, México', price: 3, rating: 4.3 },
+      { id: 1, name: 'Fabricante 1', location: 'Puriscal, San José, Costa Rica', price: 5, rating: 4.5 },
+      { id: 2, name: 'Fabricante 2', location: 'Desamparados, San José, Costa Rica', price: 4, rating: 4.8 },
+      { id: 3, name: 'Fabricante 3', location: 'Escazú, San José, Costa Rica', price: 3, rating: 4.3 },
     ]);
   }, []);
 

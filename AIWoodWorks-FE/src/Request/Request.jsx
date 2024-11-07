@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import './Request.css';
 
 function AIImageRequest() {
@@ -6,16 +7,18 @@ function AIImageRequest() {
   const [showDesignButton, setShowDesignButton] = useState(false);
   const userInputRef = useRef(null);
   const chatBoxRef = useRef(null);
+  
+  const navigate = useNavigate(); // Inicializa el hook navigate
 
   const sendMessage = async () => {
     const userInput = userInputRef.current.value;
-  
+
     // Add user message to chat
     setMessages((prevMessages) => [
       ...prevMessages,
       { text: `You: ${userInput}`, isUser: true },
     ]);
-  
+
     // Enviar el prompt al backend para generar la imagen
     try {
       const response = await fetch('http://localhost:8080/api/imagenes/generate', {
@@ -25,7 +28,7 @@ function AIImageRequest() {
         },
         body: JSON.stringify({ prompt: userInput }),
       });
-  
+
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
@@ -66,22 +69,20 @@ function AIImageRequest() {
         },
       ]);
     }
-  
+
     // Mostrar el botón "Make Design"
     setShowDesignButton(true);
-  
+
     // Limpiar el input
     userInputRef.current.value = '';
-  
+
     // Desplazar el chat hacia abajo
     chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
   };
 
-  
-
   const makeDesign = () => {
     // Navegar a la página de sugerencias al hacer clic en "Make Design"
-    navigate('/sugerencia'); // Asegúrate de que la ruta esté definida en tu archivo de rutas
+    navigate('/sugerencia'); // Esto llevará al usuario a la ruta '/sugerencia'
   };
 
   return (
@@ -134,3 +135,4 @@ function AIImageRequest() {
 }
 
 export default AIImageRequest;
+
