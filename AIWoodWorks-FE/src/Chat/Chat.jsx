@@ -1,84 +1,61 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';  // Import useNavigate and useLocation from react-router-dom
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Chat.css';
 
 function Chat() {
+  const location = useLocation();
+  const { prompt, imageUrl } = location.state || {}; // Obtiene el prompt y la imagen si están disponibles
+
   const [messages, setMessages] = useState([]);
-  const [userInput, setUserInput] = useState('');
-  const navigate = useNavigate();  // Initialize navigate
-  const location = useLocation();  // Get location to retrieve passed state
-  const { prompt, imageUrl, fabricanteId } = location.state || {};  // Get prompt and imageUrl from location.state
 
   useEffect(() => {
-    if (prompt && imageUrl) {
-      // Add initial system message with the prompt and image
-      setMessages([
-        { sender: false, text: `Nueva Solicitud de Mueble\nDescripcion\n"${prompt}"` },
-        { sender: false, text: `Imagen\n` },
-        { sender: false, text: `${imageUrl ? <img src={imageUrl} alt="Furniture Design" className="generated-image" /> : 'No image provided'}` },
-      ]);
-    }
+    // Configura el mensaje inicial con el prompt y la imagen, dejando campos vacíos si no existen
+    setMessages([
+      {
+        sender: 'Fabricante',
+        text: `Nueva Solicitud De Mueble\n\nDescripción: "${prompt || ''}"\n\nImagen:`,
+        image: imageUrl || null,
+      },
+    ]);
   }, [prompt, imageUrl]);
-
-  const sendMessage = () => {
-    if (userInput.trim() === '') return;
-
-    // Add user message to the messages array
-    setMessages(prevMessages => [
-      ...prevMessages,
-      { sender: true, text: userInput },
-    ]);
-
-    // Simulate a response from the receiver
-    setMessages(prevMessages => [
-      ...prevMessages,
-      { sender: false, text: `Received: ${userInput}` },
-    ]);
-
-    // Clear the input field
-    setUserInput('');
-  };
-
-  const sealDeal = () => {
-    // Redirect to the payment screen when sealing the deal
-    navigate('/payment');  // Navigate to the payment page
-  };
 
   return (
     <>
-      {/* Header with logo */}
+      {/* Encabezado con el título */}
       <header>
         <div className="logo">AIWoodworks</div>
       </header>
 
-      {/* Main container for chat */}
+      {/* Contenedor principal */}
       <div className="container">
-        <h2>Chat con Fabricante {fabricanteId}</h2>
+        <h2>Chat con Fabricante 3</h2>
 
-        {/* Chat box to display messages */}
+        {/* Caja de chat para mostrar los mensajes */}
         <div className="chat-box">
           {messages.map((message, index) => (
-            <div key={index} className={`message ${message.sender ? 'sender' : 'receiver'}`}>
+            <div key={index} className="message receiver">
               <p>{message.text}</p>
+              {message.image ? (
+                <div className="image-container">
+                  <img src={message.image} alt="Furniture Design" className="generated-image" />
+                </div>
+              ) : (
+                <p>(No hay imagen)</p> // Texto alternativo si no hay imagen
+              )}
             </div>
           ))}
         </div>
 
-        {/* Input group for user prompts */}
+        {/* Campo de entrada de texto y botones */}
         <div className="input-group">
-          <input
-            type="text"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-            placeholder="Type your message here..."
-          />
-          <button className="send-button" onClick={sendMessage}>
+          <input type="text" placeholder="Escribe tu mensaje aquí..." disabled />
+          <button className="send-button" disabled>
             Send
           </button>
         </div>
 
-        {/* Button to seal the deal */}
-        <button className="seal-deal-button" onClick={sealDeal}>
+        {/* Botón para sellar el trato */}
+        <button className="seal-deal-button" disabled>
           Seal Deal
         </button>
       </div>
@@ -87,4 +64,5 @@ function Chat() {
 }
 
 export default Chat;
+
 

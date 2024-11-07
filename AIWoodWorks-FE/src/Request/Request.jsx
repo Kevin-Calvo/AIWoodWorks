@@ -85,7 +85,7 @@ function AIImageRequest() {
 
   const makeDesign = () => {
     // Navegar a la página de sugerencias pasando el prompt y la imagen como estado
-    navigate('/sugerencia', { state: { prompt: userPrompt, image: generatedImage } });
+    navigate('/sugerencia', { state: { prompt: userPrompt, imageUrl: generatedImage } });
   };
 
   return (
@@ -138,5 +138,6 @@ function AIImageRequest() {
 }
 
 export default AIImageRequest;
+
 
 
