@@ -19,7 +19,6 @@ function App() {
 
         {/* Navigation Buttons */}
         <div className="button-group">
-          <a href="/chat" className="nav-button">Chat</a>
           <a href="/request" className="nav-button">Request Design</a>
           <a href="/profile" className="nav-button">Profile</a>
         </div>

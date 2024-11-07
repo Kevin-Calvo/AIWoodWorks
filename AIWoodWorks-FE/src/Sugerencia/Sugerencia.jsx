@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Sugerencia.css';
 
 function SugerenciaPage() {
   const [fabricantes, setFabricantes] = useState([]);
+  const location = useLocation(); // Usamos useLocation para acceder a los datos enviados
+  const navigate = useNavigate();
 
-  // Simulamos los perfiles de los fabricantes
+  // Obtener los datos del prompt y la imagen
+  const { prompt, imageUrl } = location.state || {};
+
   useEffect(() => {
-    // Puedes reemplazar esto con una llamada a la API para obtener los fabricantes
     setFabricantes([
       { id: 1, name: 'Fabricante 1', location: 'Puriscal, San José, Costa Rica', price: 5, rating: 4.5 },
       { id: 2, name: 'Fabricante 2', location: 'Desamparados, San José, Costa Rica', price: 4, rating: 4.8 },
@@ -15,11 +19,10 @@ function SugerenciaPage() {
   }, []);
 
   const startChat = (fabricanteId) => {
-    // Lógica para iniciar el chat, puede ser redirigir a otra página o abrir un chat
-    alert(`Starting chat with Fabricante ${fabricanteId}`);
+    // Navegar a la página de chat pasando el prompt y la imagen como parte del estado
+    navigate(`/chat`, { state: { prompt, imageUrl, fabricanteId } });
   };
 
-  // Función para renderizar las estrellas del precio
   const renderPriceStars = (price) => {
     let stars = [];
     for (let i = 0; i < 5; i++) {
@@ -31,6 +34,12 @@ function SugerenciaPage() {
   return (
     <div className="sugerencia-container">
       <h2>Fabricantes Disponibles</h2>
+      {prompt && (
+        <div className="ai-suggestion">
+          <h3>Prompt: {prompt}</h3>
+          {imageUrl && <img src={imageUrl} alt="Generated Design" className="generated-image" />}
+        </div>
+      )}
       <div className="fabricantes-list">
         {fabricantes.map((fabricante) => (
           <div key={fabricante.id} className="fabricante-card">
@@ -51,3 +60,5 @@ function SugerenciaPage() {
 }
 
 export default SugerenciaPage;
+
+

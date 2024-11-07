@@ -9,6 +9,8 @@ function AIImageRequest() {
   const chatBoxRef = useRef(null);
   
   const navigate = useNavigate(); // Inicializa el hook navigate
+  const [generatedImage, setGeneratedImage] = useState(null); // Para almacenar la imagen generada
+  const [userPrompt, setUserPrompt] = useState(''); // Para almacenar el prompt del usuario
 
   const sendMessage = async () => {
     const userInput = userInputRef.current.value;
@@ -19,7 +21,7 @@ function AIImageRequest() {
       { text: `You: ${userInput}`, isUser: true },
     ]);
 
-    // Enviar el prompt al backend para generar la imagen
+    setUserPrompt(userInput); // Guarda el prompt del usuario
     try {
       const response = await fetch('http://localhost:8080/api/imagenes/generate', {
         method: 'POST',
@@ -51,6 +53,7 @@ function AIImageRequest() {
       // Convertir la respuesta a blob y crear una URL local para mostrar la imagen
       const imageBlob = await imageResponse.blob();
       const imageUrl = URL.createObjectURL(imageBlob);
+      setGeneratedImage(imageUrl); // Guarda la imagen generada
 
       // Agregar la imagen al chat como respuesta de la IA
       setMessages((prevMessages) => [
@@ -81,8 +84,8 @@ function AIImageRequest() {
   };
 
   const makeDesign = () => {
-    // Navegar a la página de sugerencias al hacer clic en "Make Design"
-    navigate('/sugerencia'); // Esto llevará al usuario a la ruta '/sugerencia'
+    // Navegar a la página de sugerencias pasando el prompt y la imagen como estado
+    navigate('/sugerencia', { state: { prompt: userPrompt, image: generatedImage } });
   };
 
   return (
@@ -135,4 +138,5 @@ function AIImageRequest() {
 }
 
 export default AIImageRequest;
+
 
