@@ -34,12 +34,6 @@ function SugerenciaPage() {
   return (
     <div className="sugerencia-container">
       <h2>Fabricantes Disponibles</h2>
-      {prompt && (
-        <div className="ai-suggestion">
-          <h3>Prompt: {prompt}</h3>
-          {imageUrl && <img src={imageUrl} alt="Generated Design" className="generated-image" />}
-        </div>
-      )}
       <div className="fabricantes-list">
         {fabricantes.map((fabricante) => (
           <div key={fabricante.id} className="fabricante-card">
@@ -60,6 +54,7 @@ function SugerenciaPage() {
 }
 
 export default SugerenciaPage;
+
 
 
 
