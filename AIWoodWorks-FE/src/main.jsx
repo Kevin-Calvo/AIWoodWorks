@@ -8,6 +8,8 @@ import ChatPage from './Chat/Chat';
 import RequestPage from './Request/Request';
 import ProfilePage from './Profile/Profile';
 import PaymentPage from './Payment/Payment';
+import SugerenciaPage from './Sugerencia/Sugerencia'; // Asegúrate de importar la página
+
 //import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -21,7 +23,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/request" element={<RequestPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/sugerencia" element={<SugerenciaPage />} /> 
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
+

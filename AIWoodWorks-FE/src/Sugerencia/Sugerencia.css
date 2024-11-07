@@ -1,0 +1,71 @@
+.sugerencia-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .fabricantes-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .fabricante-card {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fabricante-info h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+  }
+  
+  .fabricante-info p {
+    margin: 5px 0;
+    font-size: 1em;
+  }
+  
+  .chat-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .chat-button:hover {
+    background-color: #45a049;
+  }
+  
+  .chat-button:focus {
+    outline: none;
+  }
+  
+  /* Estilos adicionales para las estrellas */
+  .fabricante-info p strong {
+    font-weight: bold;
+  }
+  
+  .fabricante-info p {
+    font-size: 0.9em;
+  }
+  
+  .fabricante-info .price-rating {
+    font-size: 1.2em;
+    color: #FFD700; /* Color dorado para las estrellas */
+  }
+  
+  

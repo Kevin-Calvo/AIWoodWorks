@@ -80,7 +80,8 @@ function AIImageRequest() {
   
 
   const makeDesign = () => {
-    alert('Design made successfully!'); // Placeholder para la acción de hacer el diseño
+    // Navegar a la página de sugerencias al hacer clic en "Make Design"
+    navigate('/sugerencia'); // Asegúrate de que la ruta esté definida en tu archivo de rutas
   };
 
   return (
