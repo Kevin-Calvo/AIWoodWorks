@@ -12,9 +12,10 @@ public class DesignService {
 
     @Autowired
     private DesignRepository designRepository;
+    private OpenAIServiceId openAIServiceId;
 
     // Método para guardar un diseño 
-    public Design saveDesign(Design design) {
+    public Design createDesign(String prompt) {
         return designRepository.save(design);
     }
 
@@ -24,8 +25,8 @@ public class DesignService {
     }
 
     // Método para obtener todos los diseños
-    public Iterable<Design> getAllDesigns() {
-        return designRepository.findAll();
+    public Iterable<Design> getDesignHistory(int userId) {
+        return designHistory;
     }
 }
 */

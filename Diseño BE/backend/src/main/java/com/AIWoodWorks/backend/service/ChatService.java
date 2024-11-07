@@ -1,5 +1,5 @@
 package com.AIWoodWorks.backend.service;
-
+/* 
 import org.springframework.stereotype.Service;
 import com.AIWoodWorks.backend.model.Chat;
 import com.AIWoodWorks.backend.repository.ChatRepository;
@@ -8,16 +8,18 @@ import com.AIWoodWorks.backend.repository.ChatRepository;
 public class ChatService {
 
     private final ChatRepository chatRepository;
+    private final LiveChatService liveChatService;
 
     public ChatService(ChatRepository chatRepository) {
         this.chatRepository = chatRepository;
     }
 
-    public void createChat(Chat chat) {
-        chatRepository.save(chat);
+    public void sendMessage(int chatId, String message) {
+        chatRepository.save(chatId, message);
     }
 
-    public Chat getChatById(Long chatId) {
+    public Chat getChatHistory(int chatId) {
         return chatRepository.findById(chatId);
     }
 }
+*/
