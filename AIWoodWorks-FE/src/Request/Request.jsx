@@ -7,7 +7,7 @@ function AIImageRequest() {
   const userInputRef = useRef(null);
   const chatBoxRef = useRef(null);
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     const userInput = userInputRef.current.value;
 
     // Add user message to chat
@@ -16,27 +16,52 @@ function AIImageRequest() {
       { text: `You: ${userInput}`, isUser: true },
     ]);
 
-    // Simulate AI response with an image
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      {
-        text: 'AI: Here is your design suggestion!',
-        image: 'https://via.placeholder.com/300', // Replace with actual image URL
-      },
-    ]);
+    // Enviar el prompt al backend para obtener la imagen generada
+    try {
+      const response = await fetch('http://localhost:8080/api/imagenes/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt: userInput }), // Enviamos el prompt al backend
+      });
 
-    // Show the "Make Design" button
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      const data = await response.json(); // Suponiendo que el backend devuelve JSON con la URL de la imagen
+
+      // Agregar la respuesta de la IA con la imagen al chat
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          text: 'AI: Here is your design suggestion!',
+          image: data.imageUrl || 'https://via.placeholder.com/300', // Usa la URL de la imagen devuelta
+        },
+      ]);
+    } catch (error) {
+      console.error("Error al generar la imagen:", error);
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          text: 'AI: Error generating the design. Please try again.',
+        },
+      ]);
+    }
+
+    // Mostrar el botón "Make Design"
     setShowDesignButton(true);
 
-    // Clear input
+    // Limpiar el input
     userInputRef.current.value = '';
 
-    // Scroll to the bottom of the chat
+    // Desplazar el chat hacia abajo
     chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
   };
 
   const makeDesign = () => {
-    alert('Design made successfully!'); // Placeholder for design action
+    alert('Design made successfully!'); // Placeholder para la acción de hacer el diseño
   };
 
   return (

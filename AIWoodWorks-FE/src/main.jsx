@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './App';
-import LoginPage from './Login';
-import RegisterPage from './Register';
-import ChatPage from './Chat';
-import RequestPage from './Request';
-import ProfilePage from './Profile';
-import PaymentPage from './Payment';
+import App from './App/App';
+import LoginPage from './Login/Login';
+import RegisterPage from './Register/Register';
+import ChatPage from './Chat/Chat';
+import RequestPage from './Request/Request';
+import ProfilePage from './Profile/Profile';
+import PaymentPage from './Payment/Payment';
 //import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

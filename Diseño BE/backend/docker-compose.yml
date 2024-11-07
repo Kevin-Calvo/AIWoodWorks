@@ -17,8 +17,8 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - "C:/Users/asara/Documents/Andres Tec/6. Semestre ll 2024/Diseño de Software/AIWoodWorks/Diseño BE/backend/target/backend-0.0.1-SNAPSHOT.jar:/app/backend.jar"
-      - "C:/Users/asara/Documents/Andres Tec/6. Semestre ll 2024/Diseño de Software/AIWoodWorks/Diseño BE/designs:/app/designs"  # Mounts designs directory
+      - "C:/Users/kevin/Documents/TEC/2024/IIS/Diseno/Proyecto/AIWoodWorks/Diseño BE/backend/target/backend-0.0.1-SNAPSHOT.jar:/app/backend.jar"
+      - "C:/Users/kevin/Documents/TEC/2024/IIS/Diseno/Proyecto/AIWoodWorks/Diseño BE/designs:/app/designs"  # Mounts designs directory
     networks:
       - app-network
 
