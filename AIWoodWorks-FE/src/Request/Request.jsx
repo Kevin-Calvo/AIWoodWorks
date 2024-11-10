@@ -92,6 +92,9 @@ function AIImageRequest() {
     <>
       <header>
         <div className="logo">AIWoodworks</div>
+        <nav>
+          <a href="/logout">Logout</a>
+        </nav>
       </header>
 
       <div className="container">
@@ -128,10 +131,6 @@ function AIImageRequest() {
             Make Design
           </button>
         )}
-      </div>
-
-      <div className="footer-text">
-        <a href="#">Logout</a>
       </div>
     </>
   );

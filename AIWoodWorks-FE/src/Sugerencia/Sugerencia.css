@@ -1,71 +1,115 @@
+body {
+  background-color: #f0f0f0; 
+  margin: 0; 
+}
+
+/* Header styling */
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilo para el logo y los enlaces */
+.logo {
+  font-size: 1.5em;
+}
+
+header nav a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+/* Contenedor principal ajustado con margen superior para compensar el header fijo */
 .sugerencia-container {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .fabricantes-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .fabricante-card {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 250px;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .fabricante-info h3 {
-    margin: 10px 0;
-    font-size: 1.2em;
-  }
-  
-  .fabricante-info p {
-    margin: 5px 0;
-    font-size: 1em;
-  }
-  
-  .chat-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-  }
-  
-  .chat-button:hover {
-    background-color: #45a049;
-  }
-  
-  .chat-button:focus {
-    outline: none;
-  }
-  
-  /* Estilos adicionales para las estrellas */
-  .fabricante-info p strong {
-    font-weight: bold;
-  }
-  
-  .fabricante-info p {
-    font-size: 0.9em;
-  }
-  
-  .fabricante-info .price-rating {
-    font-size: 1.2em;
-    color: #FFD700; /* Color dorado para las estrellas */
-  }
-  
-  
+  padding: 20px 20px; /* Reducimos el padding superior */
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 3em;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.suggest-button,
+.view-all-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.suggest-button:hover,
+.view-all-button:hover {
+  background-color: #0056b3;
+}
+
+.fabricantes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.fabricante-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fabricante-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.fabricante-info h3 {
+  margin: 5px 0;
+  font-size: 1.2em;
+}
+
+.fabricante-info p {
+  margin: 2px 0;
+  font-size: 0.9em;
+}
+
+.chat-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chat-button:hover {
+  background-color: #0056b3;
+}

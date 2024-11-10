@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom'; // Importa Link de react-router-dom
 import './Sugerencia.css';
 
 function SugerenciaPage() {
   const [fabricantes, setFabricantes] = useState([]);
-  const location = useLocation(); // Usamos useLocation para acceder a los datos enviados
+  const location = useLocation();
   const navigate = useNavigate();
 
-  // Obtener los datos del prompt y la imagen
   const { prompt, imageUrl } = location.state || {};
 
   useEffect(() => {
@@ -18,43 +17,44 @@ function SugerenciaPage() {
     ]);
   }, []);
 
-  const startChat = (fabricanteId) => {
-    // Navegar a la página de chat pasando el prompt y la imagen como parte del estado
-    navigate(`/chat`, { state: { prompt, imageUrl, fabricanteId } });
+  const startChat = (fabricanteId, fabricanteName) => {
+    navigate(`/chat`, { state: { prompt, imageUrl, fabricanteId, fabricanteName } });
   };
 
   const renderPriceStars = (price) => {
-    let stars = [];
-    for (let i = 0; i < 5; i++) {
-      stars.push(i < price ? '★' : '☆');
-    }
-    return stars.join(' ');
+    return '★'.repeat(price) + '☆'.repeat(5 - price);
   };
 
   return (
-    <div className="sugerencia-container">
-      <h2>Fabricantes Disponibles</h2>
-      <div className="fabricantes-list">
-        {fabricantes.map((fabricante) => (
-          <div key={fabricante.id} className="fabricante-card">
-            <div className="fabricante-info">
-              <h3>{fabricante.name}</h3>
-              <p><strong>Location:</strong> {fabricante.location}</p>
-              <p><strong>Price Rating:</strong> {renderPriceStars(fabricante.price)}</p>
-              <p><strong>Rating:</strong> {fabricante.rating} ⭐</p>
-              <button onClick={() => startChat(fabricante.id)} className="chat-button">
-                Chat with {fabricante.name}
+    <>
+      {/* Header with logo and navigation */}
+      <header>
+        <div className="logo">AIWoodworks</div>
+        <nav>
+          <a href="/logout">Logout</a>
+        </nav>
+      </header>
+
+      <div className="sugerencia-container">
+        <h2>Suggested Manufacturers</h2>
+
+        <div className="fabricantes-list">
+          {fabricantes.map((fabricante) => (
+            <div key={fabricante.id} className="fabricante-row">
+              <div className="fabricante-info">
+                <h3>{fabricante.name}</h3>
+                <p><strong>Rating:</strong> {fabricante.rating} ⭐ | <strong>Costo:</strong> {renderPriceStars(fabricante.price)}</p>
+                <p><strong>Ubicación:</strong> {fabricante.location}</p>
+              </div>
+              <button onClick={() => startChat(fabricante.id, fabricante.name)} className="chat-button">
+                Chat
               </button>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
 export default SugerenciaPage;
-
-
-
-

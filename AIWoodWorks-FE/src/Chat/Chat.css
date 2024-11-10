@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7;
+    background-color: #f0f0f0;
   }
   
   /* Root container */
@@ -109,7 +109,7 @@ body {
   /* Seal deal button styling */
   .seal-deal-button {
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -120,6 +120,6 @@ body {
   }
   
   .seal-deal-button:hover {
-    background-color: #218838;
+    background-color: #0056b3;
   }
   

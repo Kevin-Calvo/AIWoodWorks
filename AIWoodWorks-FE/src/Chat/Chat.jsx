@@ -1,15 +1,15 @@
+// Chat.js
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Chat.css';
 
 function Chat() {
   const location = useLocation();
-  const { prompt, imageUrl } = location.state || {}; // Obtiene el prompt y la imagen si están disponibles
+  const { prompt, imageUrl, fabricanteName } = location.state || {};
 
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    // Configura el mensaje inicial con el prompt y la imagen, dejando campos vacíos si no existen
     setMessages([
       {
         sender: 'Fabricante',
@@ -24,11 +24,14 @@ function Chat() {
       {/* Encabezado con el título */}
       <header>
         <div className="logo">AIWoodworks</div>
+        <nav>
+          <a href="/logout">Logout</a>
+        </nav>
       </header>
 
       {/* Contenedor principal */}
       <div className="container">
-        <h2>Chat con Fabricante 3</h2>
+        <h2 style={{ textAlign: 'left' }}>{fabricanteName}</h2>
 
         {/* Caja de chat para mostrar los mensajes */}
         <div className="chat-box">
@@ -40,7 +43,7 @@ function Chat() {
                   <img src={message.image} alt="Furniture Design" className="generated-image" />
                 </div>
               ) : (
-                <p>(No hay imagen)</p> // Texto alternativo si no hay imagen
+                <p>(No hay imagen)</p>
               )}
             </div>
           ))}
@@ -64,5 +67,6 @@ function Chat() {
 }
 
 export default Chat;
+
 
 
