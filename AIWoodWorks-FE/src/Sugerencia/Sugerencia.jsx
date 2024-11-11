@@ -11,9 +11,9 @@ function SugerenciaPage() {
 
   useEffect(() => {
     setFabricantes([
-      { id: 1, name: 'Fabricante 1', location: 'Puriscal, San José, Costa Rica', price: 5, rating: 4.5 },
-      { id: 2, name: 'Fabricante 2', location: 'Desamparados, San José, Costa Rica', price: 4, rating: 4.8 },
-      { id: 3, name: 'Fabricante 3', location: 'Escazú, San José, Costa Rica', price: 3, rating: 4.3 },
+      { id: 1, name: 'Gustavo Otarola', location: 'Puriscal, San José, Costa Rica', price: 5, rating: 4.5 },
+      { id: 2, name: 'Andrey Calvo', location: 'Desamparados, San José, Costa Rica', price: 4, rating: 4.8 },
+      { id: 3, name: 'Rolando Rodriguez', location: 'Escazú, San José, Costa Rica', price: 3, rating: 4.3 },
     ]);
   }, []);
 

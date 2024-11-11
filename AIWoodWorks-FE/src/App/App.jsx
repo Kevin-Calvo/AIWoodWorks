@@ -14,7 +14,7 @@ function App() {
 
       {/* Main container with navigation buttons */}
       <div className="container">
-        <h2>Welcome to AIWoodworks</h2>
+        <h2>Welcome</h2>
 
         {/* Navigation Buttons */}
         <div className="button-group">

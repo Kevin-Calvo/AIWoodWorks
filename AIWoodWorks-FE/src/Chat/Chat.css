@@ -1,125 +1,92 @@
-/* General styling */
+/* Estilo general para el cuerpo */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-  }
-  
-  /* Root container */
-  #root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  /* Header styling */
-  header {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Logo styling */
-  header .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  /* Main container */
-  .container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  /* Chat box styling */
-  .chat-box {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    height: 400px;
-    overflow-y: auto;
-    margin-bottom: 20px;
-  }
-  
-  /* Input group styling */
-  .input-group {
-    display: flex;
-    margin-bottom: 20px;
-  }
-  
-  input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .send-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: 10px;
-  }
-  
-  .send-button:hover {
-    background-color: #555;
-  }
-  
-  /* Message styling */
-  .message {
-    margin: 10px 0;
-  }
-  
-  .message p {
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .message.sender p {
-    background-color: #007bff;
-    color: white;
-    text-align: right;
-  }
-  
-  .message.receiver p {
-    background-color: #f1f1f1;
-    color: black;
-    text-align: left;
-  }
-  
-  /* Seal deal button styling */
-  .seal-deal-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    display: block;
-    width: 100%;
-  }
-  
-  .seal-deal-button:hover {
-    background-color: #0056b3;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los mensajes */
+.message {
+  margin: 10px 0;
+}
+
+.message-text {
+  padding: 10px;
+  border-radius: 5px;
+  word-wrap: break-word; /* Asegura que el texto largo se divida bien */
+}
+
+/* Mensajes del usuario (a la derecha) */
+.message.sender .message-text {
+  background-color: #f1f1f1;
+  color: black;
+  text-align: right;
+  max-width: 60%;
+  margin: 5px 0 5px auto;
+  border-radius: 15px 15px 0 15px;
+}
+
+/* Mensajes del fabricante (a la izquierda) */
+.message.receiver .message-text {
+  background-color: #9ec5fe;
+  color: black;
+  text-align: left;
+  max-width: 60%;
+  margin: 5px 0 5px 0;
+  border-radius: 15px 15px 15px 0;
+}
+
+.generated-image {
+  max-width: 100%; /* Ajustar imagen a 100% del contenedor */
+  margin-top: 10px;
+}
+
+/* Estilo para los botones */
+.input-group {
+  display: flex; /* Usamos Flexbox para alinear los botones en una fila */
+  gap: 10px; /* Espacio entre los botones */
+  justify-content: center; /* Centra los botones */
+  margin-top: 30px; /* Mayor espacio superior */
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 70%; /* Establecer un tamaño de entrada */
+}
+
+.send-button, .seal-deal-button {
+  background-color: #007bff; /* Color de fondo azul */
+  color: white; /* Texto blanco */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Efecto suave al pasar el mouse */
+}
+
+.send-button:hover, .seal-deal-button:hover {
+  background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
+}
+
+/* Botón "Seal Deal" con espacio superior adicional */
+.seal-deal-button {
+  margin-top: 30px; /* Agregar más espacio entre el campo de texto y el botón Seal Deal */
+}
+
+
+

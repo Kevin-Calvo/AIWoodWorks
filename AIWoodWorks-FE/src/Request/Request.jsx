@@ -1,27 +1,28 @@
 import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom';
 import './Request.css';
 
 function AIImageRequest() {
   const [messages, setMessages] = useState([]);
   const [showDesignButton, setShowDesignButton] = useState(false);
+  const [loading, setLoading] = useState(false); // Estado de carga
   const userInputRef = useRef(null);
   const chatBoxRef = useRef(null);
-  
-  const navigate = useNavigate(); // Inicializa el hook navigate
-  const [generatedImage, setGeneratedImage] = useState(null); // Para almacenar la imagen generada
-  const [userPrompt, setUserPrompt] = useState(''); // Para almacenar el prompt del usuario
+  const navigate = useNavigate();
+  const [generatedImage, setGeneratedImage] = useState(null);
+  const [userPrompt, setUserPrompt] = useState('');
 
   const sendMessage = async () => {
     const userInput = userInputRef.current.value;
 
-    // Add user message to chat
     setMessages((prevMessages) => [
       ...prevMessages,
-      { text: `You: ${userInput}`, isUser: true },
+      { text: `${userInput}`, isUser: true },
     ]);
 
-    setUserPrompt(userInput); // Guarda el prompt del usuario
+    setUserPrompt(userInput);
+    setLoading(true); // Activar el estado de carga
+
     try {
       const response = await fetch('http://localhost:8080/api/imagenes/generate', {
         method: 'POST',
@@ -36,30 +37,25 @@ function AIImageRequest() {
       }
 
       const responseData = await response.text();
-
-      // Usar una expresión regular para encontrar el nombre del archivo y manejar el caso de nulo
       const match = responseData.match(/generated_image_\d+\.png/);
       if (!match) {
         throw new Error("Image name not found in response");
       }
       const imageName = match[0];
 
-      // Realizar el GET para obtener la imagen
       const imageResponse = await fetch(`http://localhost:8080/api/imagenes/get/${imageName}`);
       if (!imageResponse.ok) {
         throw new Error(`Error fetching image: ${imageResponse.status}`);
       }
       
-      // Convertir la respuesta a blob y crear una URL local para mostrar la imagen
       const imageBlob = await imageResponse.blob();
       const imageUrl = URL.createObjectURL(imageBlob);
-      setGeneratedImage(imageUrl); // Guarda la imagen generada
+      setGeneratedImage(imageUrl);
 
-      // Agregar la imagen al chat como respuesta de la IA
       setMessages((prevMessages) => [
         ...prevMessages,
         {
-          text: 'AI: Here is your design suggestion!',
+          text: 'Here is your design suggestion!',
           image: imageUrl,
         },
       ]);
@@ -68,23 +64,18 @@ function AIImageRequest() {
       setMessages((prevMessages) => [
         ...prevMessages,
         {
-          text: 'AI: Error generating the design. Please try again.',
+          text: 'Error generating the design. Please try again.',
         },
       ]);
     }
 
-    // Mostrar el botón "Make Design"
+    setLoading(false); // Desactivar el estado de carga
     setShowDesignButton(true);
-
-    // Limpiar el input
     userInputRef.current.value = '';
-
-    // Desplazar el chat hacia abajo
     chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
   };
 
   const makeDesign = () => {
-    // Navegar a la página de sugerencias pasando el prompt y la imagen como estado
     navigate('/sugerencia', { state: { prompt: userPrompt, imageUrl: generatedImage } });
   };
 
@@ -98,8 +89,7 @@ function AIImageRequest() {
       </header>
 
       <div className="container">
-        <h2>Chat with AI for Designs</h2>
-        {/* Chat box to display messages */}
+        <h2 className="custom-h2">Chat with AI for Designs</h2>
         <div className="chat-box" ref={chatBoxRef}>
           {messages.map((msg, index) => (
             <div key={index} className={msg.isUser ? 'user-message' : 'ai-message'}>
@@ -113,19 +103,26 @@ function AIImageRequest() {
           ))}
         </div>
 
-        {/* Input group for user prompts */}
         <div className="input-group">
           <input
             type="text"
             ref={userInputRef}
             placeholder="Type your design prompt here..."
+            disabled={loading} // Desactiva el input si está cargando
           />
-          <button className="send-button" onClick={sendMessage}>
-            Send
+          <button
+            className="send-button"
+            onClick={sendMessage}
+            disabled={loading} // Desactiva el botón si está cargando
+          >
+            {loading ? (
+              <div className="spinner"></div> // Muestra el spinner si está cargando
+            ) : (
+              'Send'
+            )}
           </button>
         </div>
 
-        {/* Button to make design */}
         {showDesignButton && (
           <button className="make-design-button" onClick={makeDesign}>
             Make Design
@@ -137,6 +134,7 @@ function AIImageRequest() {
 }
 
 export default AIImageRequest;
+
 
 
 
