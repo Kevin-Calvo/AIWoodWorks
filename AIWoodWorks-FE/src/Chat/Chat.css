@@ -1,92 +1,148 @@
-/* Estilo general para el cuerpo */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --accent-color: #8672FF;
+  --base-color: #FFFFFF;
+  --text-color: #2E2B41;
+  --button-color: #4CAF50;
+  --button-hover-color: #45a049;
+  --header-color: #000000;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f7f7f7;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+}
+
+/* Header */
+.header-bar {
+  background-color: var(--header-color);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.header-bar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
 }
 
 /* Contenedor principal */
 .container {
   max-width: 800px;
-  margin: 50px auto;
+  margin: 80px auto;
   padding: 20px;
-  background-color: white;
+  background-color: var(--base-color);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para los mensajes */
+.custom-h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+
+/* Caja de chat */
+.chat-box {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  height: 400px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+/* Mensajes */
 .message {
   margin: 10px 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.sender {
+  justify-content: flex-end;
+}
+
+.receiver {
+  justify-content: flex-start;
 }
 
 .message-text {
   padding: 10px;
-  border-radius: 5px;
-  word-wrap: break-word; /* Asegura que el texto largo se divida bien */
+  border-radius: 15px;
+  word-wrap: break-word;
+  max-width: 60%;
 }
 
-/* Mensajes del usuario (a la derecha) */
-.message.sender .message-text {
-  background-color: #f1f1f1;
-  color: black;
+.sender .message-text {
+  background-color: #9ed1a0;
   text-align: right;
-  max-width: 60%;
-  margin: 5px 0 5px auto;
+  margin-left: auto;
   border-radius: 15px 15px 0 15px;
 }
 
-/* Mensajes del fabricante (a la izquierda) */
-.message.receiver .message-text {
-  background-color: #9ec5fe;
-  color: black;
+.receiver .message-text {
+  background-color: #4CAF50;
   text-align: left;
-  max-width: 60%;
-  margin: 5px 0 5px 0;
+  margin-right: auto;
   border-radius: 15px 15px 15px 0;
 }
 
 .generated-image {
-  max-width: 100%; /* Ajustar imagen a 100% del contenedor */
+  max-width: 100%;
   margin-top: 10px;
 }
 
-/* Estilo para los botones */
+/* Botones y cuadro de entrada */
 .input-group {
-  display: flex; /* Usamos Flexbox para alinear los botones en una fila */
-  gap: 10px; /* Espacio entre los botones */
-  justify-content: center; /* Centra los botones */
-  margin-top: 30px; /* Mayor espacio superior */
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 input[type="text"] {
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  width: 70%; /* Establecer un tamaño de entrada */
+  width: 80%;
 }
 
-.send-button, .seal-deal-button {
-  background-color: #007bff; /* Color de fondo azul */
-  color: white; /* Texto blanco */
-  padding: 10px 20px;
+.send-button {
+  background-color: var(--button-color);
+  color: white;
+  padding: 12px 20px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Efecto suave al pasar el mouse */
+  transition: background-color 0.3s ease;
 }
 
-.send-button:hover, .seal-deal-button:hover {
-  background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
+.send-button:hover {
+  background-color: var(--button-hover-color);
 }
 
-/* Botón "Seal Deal" con espacio superior adicional */
 .seal-deal-button {
-  margin-top: 30px; /* Agregar más espacio entre el campo de texto y el botón Seal Deal */
+  margin-top: 30px;
+  width: 100%;
+  background-color: var(--button-color);
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-
-
+.seal-deal-button:hover {
+  background-color: var(--button-hover-color);
+}

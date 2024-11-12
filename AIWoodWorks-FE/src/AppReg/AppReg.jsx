@@ -8,7 +8,7 @@ function AppReg() {
     setIsDropdownVisible(!isDropdownVisible);
   };
 
-  // Close dropdown if clicking outside
+  // Cerrar el menú desplegable si se hace clic fuera de él
   const handleClickOutside = (e) => {
     if (!e.target.closest('.profile-button') && !e.target.closest('.dropdown-menu')) {
       setIsDropdownVisible(false);
@@ -17,9 +17,9 @@ function AppReg() {
 
   return (
     <>
-      {/* Header with logo and profile button */}
-      <header onClick={handleClickOutside}>
-        <div className="logo">AIWoodworks</div>
+      {/* Header con logo como botón y menú de perfil */}
+      <header onClick={handleClickOutside} className="header-bar">
+        <a href="/" className="logo" style={{ color: '#2E2B41' }}>AIWoodWorks</a>
         <nav>
           <button className="profile-button" onClick={toggleDropdown}>Stuff</button>
           {isDropdownVisible && (
@@ -32,9 +32,9 @@ function AppReg() {
         </nav>
       </header>
 
-      {/* Main container for posts */}
+      {/* Contenedor principal para los posts */}
       <div className="container">
-        <h2>Posts</h2>
+        <h2 style={{ color: '#2E2B41' }}>Posts</h2>
         <div className="post">
           <div className="post-title">Sample Post Title</div>
           <div className="post-content">

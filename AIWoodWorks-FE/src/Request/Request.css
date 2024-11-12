@@ -1,4 +1,37 @@
-/* Estilos generales del chat */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --accent-color: #8672FF;
+  --base-color: #FFFFFF;
+  --text-color: #2E2B41;
+  --button-color: #4CAF50;
+  --button-hover-color: #45a049;
+  --header-color: #000000;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* Header */
+.header-bar {
+  background-color: var(--header-color);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.header-bar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white; /* Mantener el logo en blanco */
+}
+
+/* Chat box */
 .chat-box {
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -8,32 +41,22 @@
   margin-bottom: 20px;
 }
 
-/* Estilos de los mensajes del usuario (a la derecha) */
 .user-message {
   text-align: right;
-  background-color: #cfe2ff; /* Azul pastel claro para el mensaje del usuario */
+  background-color: #9ed1a0;
   padding: 10px;
   border-radius: 15px 0 15px 15px;
   max-width: 40%;
   margin: 5px 0 5px auto;
-  color: #333;
 }
 
-/* Estilos de los mensajes de la IA (a la izquierda) */
 .ai-message {
   text-align: left;
-  background-color: #9ec5fe; /* Azul pastel oscuro para el mensaje de la IA */
+  background-color: #4CAF50;
   padding: 10px;
   border-radius: 0 15px 15px 15px;
   max-width: 60%;
   margin: 5px auto 5px 0;
-  color: #333;
-}
-
-/* Contenedor de imagen para el diseño generado */
-.image-container {
-  margin: 10px 0;
-  text-align: center;
 }
 
 .image-container img {
@@ -43,42 +66,32 @@
   margin: 5px;
 }
 
-/* Botón "Make Design" */
-.make-design-button {
-  padding: 10px 20px;
-  background-color: #007bff; /* Azul */
+/* Botones */
+.send-button, .make-design-button {
+  background-color: var(--button-color);
   color: white;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  margin: 10px 0;
-  display: inline-block;
-  text-align: left;
+  transition: background-color 0.3s ease;
 }
 
-.make-design-button:hover {
-  background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
+.send-button:hover, .make-design-button:hover {
+  background-color: var(--button-hover-color);
 }
 
-/* Spinner styling */
+/* Spinner */
 .spinner {
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #007bff;
+  border-top: 4px solid var(--button-color);
   border-radius: 50%;
   width: 16px;
   height: 16px;
   animation: spin 1s linear infinite;
 }
 
-/* Spinner animation */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-/* Disabled button styling */
-.send-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
 }

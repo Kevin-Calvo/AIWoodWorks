@@ -1,21 +1,35 @@
-body {
-  background-color: #f0f0f0; 
-  margin: 0; 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --accent-color: #8672FF;
+  --base-color: #FFFFFF;
+  --text-color: #2E2B41;
+  --button-color: #4CAF50;
+  --button-hover-color: #45a049;
+  --header-color: #000000;
 }
 
-/* Header styling */
-header {
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
+body {
+  background-color: #f7f7f7;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+.header-bar {
+  background-color: var(--header-color);
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 
-/* Estilo para el logo y los enlaces */
-.logo {
-  font-size: 1.5em;
+.header-bar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
 }
 
 header nav a {
@@ -24,46 +38,27 @@ header nav a {
   text-decoration: none;
 }
 
-/* Contenedor principal ajustado con margen superior para compensar el header fijo */
+/* Contenedor principal */
 .sugerencia-container {
-  padding: 20px 20px; /* Reducimos el padding superior */
-  font-family: Arial, sans-serif;
-  max-width: 600px;
-  margin: auto;
+  padding: 20px;
+  max-width: 800px;
+  margin: 80px auto;
+  background-color: var(--base-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.custom-h2 {
   text-align: center;
   margin-bottom: 30px;
-  font-size: 3em;
+  color: var(--text-color);
 }
 
-.buttons-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
-}
-
-.suggest-button,
-.view-all-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.suggest-button:hover,
-.view-all-button:hover {
-  background-color: #0056b3;
-}
-
+/* Lista de fabricantes */
 .fabricantes-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   max-height: 400px;
   overflow-y: auto;
   border: 1px solid #ddd;
@@ -78,21 +73,14 @@ h2 {
   background-color: #f8f8f8;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 10px;
+  padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.fabricante-info {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  margin-right: 10px;
-  text-align: left;
 }
 
 .fabricante-info h3 {
   margin: 5px 0;
   font-size: 1.2em;
+  color: var(--text-color);
 }
 
 .fabricante-info p {
@@ -101,15 +89,15 @@ h2 {
 }
 
 .chat-button {
-  background-color: #007bff;
+  background-color: var(--button-color);
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .chat-button:hover {
-  background-color: #0056b3;
+  background-color: var(--button-hover-color);
 }

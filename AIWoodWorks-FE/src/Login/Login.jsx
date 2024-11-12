@@ -7,27 +7,23 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
-    // Placeholder for real login logic
     alert(`Logged in with email: ${email} and password: ${password}`);
-
-    // Clear input fields
     setEmail('');
     setPassword('');
   };
 
   return (
     <>
-      {/* Header with logo */}
-      <header>
-        <div className="logo">AIWoodworks</div>
+      {/* Header con logo como botón */}
+      <header className="header-bar">
+        <a href="/" className="logo">AIWoodWorks</a>
       </header>
 
-      {/* Main container for login form */}
+      {/* Contenedor principal para el formulario de inicio de sesión */}
       <div className="container">
         <h2>Login</h2>
 
-        {/* Login Form */}
+        {/* Formulario de inicio de sesión */}
         <form onSubmit={handleLogin}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -56,9 +52,9 @@ function Login() {
           </button>
         </form>
 
-        {/* Additional links like registration */}
+        {/* Enlace para registro */}
         <div className="footer-text">
-          Don't have an account? <a href="#">Register here</a>
+          Don't have an account? <a href="/register">Register here</a>
         </div>
       </div>
     </>

@@ -1,74 +1,114 @@
-/* General styling */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --accent-color: #2E2B41;
+  --base-color: #FFFFFF;
+  --text-color: #2E2B41; /* Color para el logo y texto */
+  --input-color: #F3F0FF;
+  --button-color: #4CAF50; /* Verde */
+  --button-hover-color: #45a049; /* Verde más oscuro */
+  --header-color: #020202; /* Negro */
 }
 
-/* Header styling */
-header {
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f7fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin-top: 70px;
+}
+
+/* Header */
+.header-bar {
+  width: 100%;
+  background-color: var(--header-color);
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  color: white;
+  box-sizing: border-box;
 }
 
-header .logo {
-  font-size: 24px;
-  font-weight: bold;
+.header-bar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--text-color); /* Cambiado a #2E2B41 */
 }
 
-header nav a {
+.header-bar nav {
+  display: flex;
+  gap: 15px;
+  margin-right: 20px;
+}
+
+.header-bar nav a {
   color: white;
   text-decoration: none;
-  margin-left: 20px;
+  font-weight: 500;
 }
 
-header nav a:hover {
-  text-decoration: underline;
+.header-bar nav a:hover {
+  color: var(--accent-color);
 }
 
-/* Main container styling */
-/* Main container styling */
-.container {
-  max-width: 100%; /* Ajusta a un porcentaje mayor para que ocupe más ancho */
-  margin: 80px auto; /* Reduce el margen superior para acercarlo al header */
-  padding: 80px; /* Aumenta el padding para dar más espacio interno */
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Contenedor principal */
+.wrapper {
+  width: max(40%, 600px);
+  padding: 40px;
+  margin: auto;
+  background-color: var(--base-color);
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-h2 {
+h1 {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  color: var(--text-color);
   margin-bottom: 40px;
 }
 
-
-/* Navigation button group */
+/* Botones de navegación */
 .button-group {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Aumenta el espacio entre los botones */
+  gap: 20px;
   align-items: center;
-  width: 100%; /* Si deseas que el grupo ocupe todo el ancho disponible */
 }
 
 .nav-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
+  padding: 15px 30px;
+  background-color: var(--button-color);
   color: white;
   text-decoration: none;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 50%;
-  text-align: center;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
 .nav-button:hover {
-  background-color: #f0f0f0;
+  background-color: var(--button-hover-color);
 }

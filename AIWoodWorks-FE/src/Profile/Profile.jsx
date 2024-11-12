@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import './Profile.css';
+import userProfilePicture from './user-02.jpg';
 
 function UserProfile() {
-  const [user, setUser] = useState({
-    name: 'John Doe',
-    email: 'johndoe@example.com',
-    localization: 'New York, USA',
-    phone: '+1 234 567 8901',
+  const [user] = useState({
+    name: 'Carlos Méndez',
+    email: 'carlosmendez@example.com',
+    localization: 'San José, Costa Rica',
+    phone: '+506 1234 5678',
     furnitureMaker: true,
     description: 'Passionate furniture maker with over 10 years of experience.',
-    profilePicture: 'profile_picture.jpg',
+    profilePicture: 'user-02.jpg', 
   });
 
   const [reviews] = useState([
@@ -24,13 +25,13 @@ function UserProfile() {
 
   const handleEditProfile = () => {
     console.log('Edit Profile Clicked');
-    // Here you would typically navigate to the edit profile page or show an edit form
   };
 
   return (
     <>
-      <header>
-        <div className="logo">AIWoodworks</div>
+      {/* Header con logo como botón */}
+      <header className="header-bar">
+        <a href="/" className="logo">AIWoodWorks</a>
       </header>
 
       <div className="container">
@@ -38,6 +39,13 @@ function UserProfile() {
         <div className="profile-info">
           <label htmlFor="name">Name:</label>
           <p id="name">{user.name}</p>
+
+          <label htmlFor="profilePicture">Profile Picture:</label>
+          <img
+            src={userProfilePicture}
+            alt="Profile Picture"
+            style={{ width: '100%', maxWidth: '200px', borderRadius: '5px' }}
+          />
 
           <label htmlFor="email">Email:</label>
           <p id="email">{user.email}</p>
@@ -54,8 +62,6 @@ function UserProfile() {
           <label htmlFor="description">Profile Description:</label>
           <p id="description">{user.description}</p>
 
-          <label htmlFor="profilePicture">Profile Picture:</label>
-          <img id="profilePicture" src={user.profilePicture} alt="Profile Picture" style={{ width: '100%', maxWidth: '200px', borderRadius: '5px' }} />
         </div>
 
         <button className="edit-button" onClick={handleEditProfile}>Edit Profile</button>
@@ -82,7 +88,7 @@ function UserProfile() {
       </div>
 
       <div className="footer-text">
-        <a href="#">Logout</a>
+        <a href="/login">Logout</a>
       </div>
     </>
   );

@@ -1,8 +1,12 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Payment.css';
 
 function PaymentPage() {
-  const [paymentMethod, setPaymentMethod] = useState('creditCard'); // Default payment method
+  const location = useLocation();
+  const { prompt, imageUrl, fabricanteName } = location.state || {};
+
+  const [paymentMethod, setPaymentMethod] = useState('creditCard');
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
@@ -14,19 +18,33 @@ function PaymentPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert('Payment processed successfully!'); // Placeholder for payment processing
+    alert('Payment processed successfully!');
   };
 
   return (
     <>
-      <header>
-        <div className="logo">AIWoodworks</div>
+      {/* Header con logo */}
+      <header className="header-bar">
+        <a href="/" className="logo">AIWoodWorks</a>
       </header>
 
+      {/* Contenedor principal */}
       <div className="container">
         <h2>Payment Page</h2>
+
+        {/* Mostrar información del fabricante y del diseño */}
+        {fabricanteName && (
+          <div className="fabricante-info">
+            <h3>Fabricante: {fabricanteName}</h3>
+            <p><strong>Descripción:</strong> {prompt}</p>
+            {imageUrl && (
+              <img src={imageUrl} alt="Furniture Design" className="design-image" />
+            )}
+          </div>
+        )}
+
+        {/* Formulario de pago */}
         <form onSubmit={handleSubmit}>
-          {/* Payment Method Selection */}
           <div className="form-group">
             <label>Payment Method:</label>
             <div>
@@ -51,7 +69,7 @@ function PaymentPage() {
             </div>
           </div>
 
-          {/* Credit Card Payment Fields */}
+          {/* Campos para tarjeta de crédito */}
           {paymentMethod === 'creditCard' && (
             <div className="credit-card-fields">
               <div className="form-group">
@@ -88,12 +106,12 @@ function PaymentPage() {
             </div>
           )}
 
-          {/* Sinpe Payment Field */}
+          {/* Campo para pago por Sinpe */}
           {paymentMethod === 'sinpe' && (
             <div className="form-group">
               <label htmlFor="sinpeNumero">Sinpe Number:</label>
               <input
-                type="email"
+                type="text"
                 id="sinpeNumero"
                 value={sinpeNumero}
                 onChange={(e) => setSinpeNumero(e.target.value)}
@@ -107,7 +125,7 @@ function PaymentPage() {
       </div>
 
       <div className="footer-text">
-        <a href="#">Cancel</a>
+        <a href="/">Cancel</a>
       </div>
     </>
   );

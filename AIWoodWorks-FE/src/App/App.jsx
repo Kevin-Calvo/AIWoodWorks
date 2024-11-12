@@ -3,23 +3,24 @@ import './App.css';
 function App() {
   return (
     <>
-      {/* Header with logo and navigation */}
-      <header>
-        <div className="logo">AIWoodworks</div>
+      {/* Header con logo como botón */}
+      <header className="header-bar">
+        <a href="/" className="logo">AIWoodWorks</a>
         <nav>
           <a href="/login">Login</a>
           <a href="/register">Register</a>
         </nav>
       </header>
 
-      {/* Main container with navigation buttons */}
-      <div className="container">
-        <h2>Welcome</h2>
+      {/* Contenedor principal */}
+      <div className="wrapper">
+        <h1 style={{ color: '#2E2B41' }}>Bienvenido a AIWoodWorks</h1>
+        <p>Descubre diseños personalizados para tus muebles</p>
 
-        {/* Navigation Buttons */}
+        {/* Botones de navegación */}
         <div className="button-group">
-          <a href="/request" className="nav-button">Request Design</a>
-          <a href="/profile" className="nav-button">Profile</a>
+          <a href="/request" className="nav-button">Solicitar Diseño</a>
+          <a href="/profile" className="nav-button">Perfil</a>
         </div>
       </div>
     </>

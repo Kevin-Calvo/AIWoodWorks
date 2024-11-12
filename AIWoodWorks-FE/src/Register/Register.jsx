@@ -29,9 +29,7 @@ function RegistrationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form data submitted:', formData);
-    // You can send formData to your backend here via an API request
 
-    // Reset form fields
     setFormData({
       name: '',
       email: '',
@@ -46,8 +44,9 @@ function RegistrationForm() {
 
   return (
     <>
-      <header>
-        <div className="logo">AIWoodworks</div>
+      {/* Header con logo como botón */}
+      <header className="header-bar">
+        <a href="/" className="logo">AIWoodWorks</a>
       </header>
 
       <div className="container">
@@ -88,7 +87,7 @@ function RegistrationForm() {
               required
             />
             <div className="password-toggle">
-              <button type="button" id="togglePassword" onClick={togglePasswordVisibility}>
+              <button type="button" onClick={togglePasswordVisibility}>
                 {showPassword ? 'Hide Password' : 'See Password'}
               </button>
             </div>
@@ -130,33 +129,11 @@ function RegistrationForm() {
             <label htmlFor="furnitureMaker">Are you a furniture maker?</label>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="description">Profile Description (Optional)</label>
-            <input
-              type="text"
-              id="description"
-              name="description"
-              value={formData.description}
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="profilePicture">Profile Picture (Optional)</label>
-            <input
-              type="file"
-              id="profilePicture"
-              name="profilePicture"
-              accept="image/*"
-              onChange={handleInputChange}
-            />
-          </div>
-
           <button type="submit" className="register-button">Register</button>
         </form>
 
         <div className="footer-text">
-          Already have an account? <a href="#">Login here</a>
+          Already have an account? <a href="/login">Login here</a>
         </div>
       </div>
     </>

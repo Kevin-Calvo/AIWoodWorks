@@ -5,7 +5,7 @@ import './Request.css';
 function AIImageRequest() {
   const [messages, setMessages] = useState([]);
   const [showDesignButton, setShowDesignButton] = useState(false);
-  const [loading, setLoading] = useState(false); // Estado de carga
+  const [loading, setLoading] = useState(false);
   const userInputRef = useRef(null);
   const chatBoxRef = useRef(null);
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ function AIImageRequest() {
     ]);
 
     setUserPrompt(userInput);
-    setLoading(true); // Activar el estado de carga
+    setLoading(true);
 
     try {
       const response = await fetch('http://localhost:8080/api/imagenes/generate', {
@@ -47,7 +47,7 @@ function AIImageRequest() {
       if (!imageResponse.ok) {
         throw new Error(`Error fetching image: ${imageResponse.status}`);
       }
-      
+
       const imageBlob = await imageResponse.blob();
       const imageUrl = URL.createObjectURL(imageBlob);
       setGeneratedImage(imageUrl);
@@ -63,13 +63,11 @@ function AIImageRequest() {
       console.error("Error al generar la imagen:", error);
       setMessages((prevMessages) => [
         ...prevMessages,
-        {
-          text: 'Error generating the design. Please try again.',
-        },
+        { text: 'Error generating the design. Please try again.' },
       ]);
     }
 
-    setLoading(false); // Desactivar el estado de carga
+    setLoading(false);
     setShowDesignButton(true);
     userInputRef.current.value = '';
     chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
@@ -81,8 +79,8 @@ function AIImageRequest() {
 
   return (
     <>
-      <header>
-        <div className="logo">AIWoodworks</div>
+      <header className="header-bar">
+        <a href="/" className="logo">AIWoodWorks</a>
         <nav>
           <a href="/logout">Logout</a>
         </nav>
@@ -108,18 +106,14 @@ function AIImageRequest() {
             type="text"
             ref={userInputRef}
             placeholder="Type your design prompt here..."
-            disabled={loading} // Desactiva el input si está cargando
+            disabled={loading}
           />
           <button
             className="send-button"
             onClick={sendMessage}
-            disabled={loading} // Desactiva el botón si está cargando
+            disabled={loading}
           >
-            {loading ? (
-              <div className="spinner"></div> // Muestra el spinner si está cargando
-            ) : (
-              'Send'
-            )}
+            {loading ? <div className="spinner"></div> : 'Send'}
           </button>
         </div>
 
@@ -134,7 +128,3 @@ function AIImageRequest() {
 }
 
 export default AIImageRequest;
-
-
-
-

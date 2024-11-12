@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom'; // Importa Link de react-router-dom
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import './Sugerencia.css';
 
 function SugerenciaPage() {
@@ -27,16 +27,16 @@ function SugerenciaPage() {
 
   return (
     <>
-      {/* Header with logo and navigation */}
-      <header>
-        <div className="logo">AIWoodworks</div>
+      {/* Header con logo y navegación */}
+      <header className="header-bar">
+        <a href="/" className="logo">AIWoodWorks</a>
         <nav>
           <a href="/logout">Logout</a>
         </nav>
       </header>
 
       <div className="sugerencia-container">
-        <h2>Suggested Manufacturers</h2>
+        <h2 className="custom-h2">Suggested Manufacturers</h2>
 
         <div className="fabricantes-list">
           {fabricantes.map((fabricante) => (
