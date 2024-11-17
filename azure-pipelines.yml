@@ -37,3 +37,11 @@ steps:
     artifactName: 'drop'
     publishLocation: 'Container'
   displayName: 'Publish Build Artifacts'
+
+# 5. Desplegar en Azure App Service
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'your-azure-subscription'
+    appName: 'aiwoodworks-backend'
+    package: '$(Build.ArtifactStagingDirectory)/*.jar'
+  displayName: 'Deploy to Azure Web App'
