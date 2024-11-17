@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: aiwoodworks-backend
+    env: docker
+    plan: free
+    region: oregon 
+    dockerfilePath: DiseñoBE/backend/Dockerfile
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/backend-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: "jdbc:sqlserver://tu-servidor.database.windows.net:1433;database=tu-db"
+      - key: SPRING_DATASOURCE_USERNAME
+        value: "tu-usuario"
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: "tu-contraseña"
