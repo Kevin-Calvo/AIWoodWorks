@@ -21,16 +21,16 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
 
-    # 3. Cambiar el directorio de trabajo para `Diseño BE/backend/`
-    - name: Set working directory
-      run: cd "Diseño BE/backend/"
+    # 3. Asignar permisos de ejecución a `mvnw`
+    - name: Grant execute permissions for Maven Wrapper
+      run: chmod +x "Diseño BE/backend/mvnw"
 
     # 4. Compilar tu aplicación con Maven
     - name: Build with Maven
       working-directory: "Diseño BE/backend"
       run: ./mvnw clean package -DskipTests
 
-    # 5. Construir la imagen Docker usando tu Dockerfile en la ruta correcta
+    # 5. Construir la imagen Docker usando tu Dockerfile
     - name: Build Docker Image
       working-directory: "Diseño BE/backend"
       run: docker build -t aiwoodworks-backend -f Dockerfile .
