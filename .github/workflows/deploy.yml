@@ -14,11 +14,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # 2. Configurar Java
+    # 2. Configurar Java (con el parámetro `distribution` requerido)
     - name: Set up Java
       uses: actions/setup-java@v3
       with:
         java-version: '11'
+        distribution: 'temurin'  # Opciones: 'temurin', 'zulu', 'adopt', etc.
 
     # 3. Compilar tu aplicación con Maven
     - name: Build with Maven
@@ -29,7 +30,7 @@ jobs:
     - name: Build Docker Image
       run: docker build -t aiwoodworks-backend -f "Diseño BE/backend/Dockerfile" .
 
-    # 5. Desplegar el contenedor Docker con credenciales explícitas
+    # 5. Ejecutar el contenedor Docker con credenciales explícitas
     - name: Run Docker Container
       run: |
         docker run -d -p 8080:8080 \
