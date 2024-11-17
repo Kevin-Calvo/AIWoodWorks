@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: aiwoodworks-backend
+    env: docker
+    dockerfilePath: "Diseño BE/backend/Dockerfile"
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar backend/target/backend-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: "jdbc:sqlserver://..."
+      - key: SPRING_DATASOURCE_USERNAME
+        value: "asaraya@aiwoodworkssrvr"
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: "Guachin321!"
