@@ -3,14 +3,16 @@ services:
     name: aiwoodworks-backend
     env: docker
     plan: free
-    region: oregon 
-    dockerfilePath: DiseñoBE/backend/Dockerfile
+    region: oregon
+    dockerfilePath: "Diseño%20BE/backend/Dockerfile"
     buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -jar target/backend-0.0.1-SNAPSHOT.jar
+    startCommand: java -jar backend/target/backend-0.0.1-SNAPSHOT.jar
     envVars:
       - key: SPRING_DATASOURCE_URL
-        value: "jdbc:sqlserver://tu-servidor.database.windows.net:1433;database=tu-db"
+        value: "jdbc:sqlserver://aiwoodworkssrvr.database.windows.net:1433;database=aiwoodworks_db;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
       - key: SPRING_DATASOURCE_USERNAME
-        value: "tu-usuario"
+        value: "asaraya@aiwoodworkssrvr"
       - key: SPRING_DATASOURCE_PASSWORD
-        value: "tu-contraseña"
+        value: "Guachin321!"
+      - key: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+        value: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
